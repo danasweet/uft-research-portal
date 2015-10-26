@@ -2,10 +2,10 @@
 
 ## Team Queen
 ### Members:
-Dana Sweet
-Dennis Tam
-Nicole Carpenter
-Sheena Bryant
+Dana Sweet   
+Dennis Tam   
+Nicole Carpenter   
+Sheena Bryant   
 
 
 ## Frameworks & Resources
@@ -14,14 +14,14 @@ Rails, AJAX, Rspec/Capybara
 
 ## Team Norms
 
-Stand ups: 8:15am, 1:15pm, 5pm
-Communal snacks
-Trello board for task management
-Pull requests approved by tech lead
-Work in vertical slices
-Team slack channel for central communication
-Theme song: "Don't Stop Me Now" by Queen
-Mission Statement: "Strength in unity, unity in strength."
+Stand ups: 8:15am, 1:15pm, 5pm   
+Communal snacks   
+Trello board for task management   
+Pull requests approved by tech lead   
+Work in vertical slices   
+Team slack channel for central communication   
+Theme song: "Don't Stop Me Now" by Queen   
+Mission Statement: "Strength in unity, unity in strength."   
 
 
 ## User Stories
