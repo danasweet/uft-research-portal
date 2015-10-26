@@ -1,0 +1,6 @@
+<h1><%= @proposal.title %></h1>
+<h3>Current Experiments</h3>
+  <% @experiments.each do |experiment| %>
+    <h4><%= experiment.title %></h4>
+    <p><%= experiment.description %></p>
+  <% end %>
