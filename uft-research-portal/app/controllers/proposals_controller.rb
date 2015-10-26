@@ -10,7 +10,8 @@ class ProposalsController < ApplicationController
 
   def create 
     @proposal = Proposal.create!(proposal_params)
-    @proposal.faculty = current_user
+    # @proposal.faculty = current_user
+    @proposal.faculty = User.find_by(id: session[:user_id])
     @proposal.save 
       if @proposal.valid?
         redirect_to proposal_path(@proposal)
@@ -62,49 +63,3 @@ end
 #                          PUT    /proposals/:id(.:format)                               proposals#update
 #                          DELETE /proposals/:id(.:format)                               proposals#destroy
 
-
-# class PostsController < ApplicationController
-
-#   before_filter :authorize, :except => [:index, :show]
-
-#   def index
-#     @posts = Post.all
-#   end
-
-#   def new
-#     @post = Post.new
-#   end
-
-#   def create
-#     @post = Post.create!(post_params)
-#     @post.author = current_user
-#     @post.save
-#       if @post.valid?
-#         redirect_to post_path(@post)
-#       else
-#         redirect_to new_post_path
-#       end
-#   end
-
-#   def edit
-#   end
-
-#   def update
-#   end
-
-#   def show
-#     p params
-#     @post = Post.find(params[:id])
-#     @comments = @post.comments
-#     @comment = Comment.new
-#   end
-
-#   def destroy
-#   end
-
-#   private
-
-#   def post_params
-#     params.require(:post).permit(:title, :url)
-#   end
-# end

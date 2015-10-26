@@ -3,9 +3,8 @@
 <% @proposals.each do |proposal| %>
   <ul>
     <h2><%= proposal.title %></h2>
-    <p>Submitted by: <%= proposal.faculty.name %></p>
+    <p>Department: <%= proposal.department %>
     <p>Summary: <%= proposal.summary %>
-    <p>Hypothesis: <%= proposal.hypothesis %>
     <br>
   </ul>
 <%end%>
