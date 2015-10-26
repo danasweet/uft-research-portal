@@ -1,0 +1,17 @@
+<h1>Lab Portal - Team Queen  </h1>
+
+<% @proposals.each do |proposal| %>
+  <ul>
+    <h2><%= proposal.title %></h2>
+    <p>Submitted by: <%= proposal.faculty.name %></p>
+    <p>Summary: <%= proposal.summary %>
+    <p>Hypothesis: <%= proposal.hypothesis %>
+    <br>
+  </ul>
+<%end%>
+
+
+
+
+
+  
