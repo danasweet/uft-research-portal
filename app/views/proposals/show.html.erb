@@ -6,6 +6,7 @@
     <br>
     <% if @current_user.id === @proposal_creator.id  %>
       <%= link_to "Edit", edit_proposal_path  %> | <%= link_to "Delete", proposal_path(@proposal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
+    <% end %>
   </div>
 
   <div class='container'>
@@ -33,5 +34,6 @@
 
   <% if @current_user.is_researcher? %>
     <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
+  <% end %>
   <br>
 </div>
