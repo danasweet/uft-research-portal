@@ -1,0 +1,5 @@
+<%= form_for [@proposal, @experiment, @comment], remote: true do |f| %>
+  <%= f.text_field :content %>
+  <%= f.text_field :stage %>
+  <%= f.button :submit %>
+<% end %>
