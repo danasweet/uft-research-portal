@@ -5,8 +5,21 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    redirect_to "/posts"
+    p "*************"
+    p user_params
+    p "*************"
+
+    if @user.save && @user.valid?
+      p "*************"
+      p @user.id
+      p @user.name
+      p "*************"
+
+      redirect_to "/"
+    else
+      render 'new'
+    end
+
   end
 
   def edit
@@ -19,9 +32,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, :role)
   end
 end

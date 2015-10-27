@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: login_params[:email])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to "/posts"
+      redirect_to "/"
     else
       render :new
     end
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out
-    redirect_to "/posts"
+    redirect_to "/"
   end
 
   private
