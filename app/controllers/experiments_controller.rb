@@ -2,7 +2,6 @@ class ExperimentsController < ApplicationController
 
   #list of all stubbed experiments associated with a proposal
   def index
-    #does rails just know this automatically?
     @proposal = Proposal.find(params[:proposal_id])
     @comments = @proposal.comments
     @experiments = @proposal.experiments
@@ -33,13 +32,25 @@ class ExperimentsController < ApplicationController
     @comment = Comment.new
   end
 
-  #edit an existing experiment
   def edit
     @experiment = Experiment.find(params[:id])
   end
 
+  #update an existing experiment
+  def update
+    @experiment = Experiment.find(params[:id])
+    if @experiment.update(experiment_params)
+      redirect_to proposal_experiment_path
+    else
+      render 'edit'
+    end
+  end
+
   #delete an existing experiment
   def destroy
+    @experiment = Experiment.find(params[:id])
+    @experiment.destroy
+    redirect_to proposal_experiments_path
   end
 
   private
