@@ -1,1 +1,30 @@
-<p>home of future edit form</p>
+<h2>Edit Experiment</h2>
+<%= form_for :experiment, url: proposal_experiment_path, method: :patch do |f| %>
+  <% if @experiment.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@experiment.errors.count, "error") %> prohibited this article from being saved:
+      </h2>
+      <ul>
+        <% @experiment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :description %><br>
+  <%= f.text_area :description %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+
+<% end %>
