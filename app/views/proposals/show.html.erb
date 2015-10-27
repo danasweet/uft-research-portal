@@ -1,7 +1,8 @@
 <div class="container">
   <div class='row well well-lg'>
     <h1><%= @proposal.title %></h1>
-    <p>Submitted by: <%=  @proposal.faculty.name %> </p><p>Summary: <%=  @proposal.summary %> </p>
+    <p>Submitted by: <%=  @proposal.faculty.name %> </p>
+    <p>Summary: <%=  @proposal.summary %> </p>
     <p>Hypothesis: <%=  @proposal.hypothesis %> </p>
     <br>
     <% if @current_user.id === @proposal_creator.id  %>
@@ -22,19 +23,19 @@
           <li class='divider'></li>
         <% end %>
     </ul>
+    <% end %>
     <h2>Comments</h2>
+
     <br>
     <div class='container well'>
       <%= render :partial => "comments/formProposal.html.erb" %>
       <%= render :partial => "comments/index.html.erb" %>
     </div>
-    <% end %>
+  <% end %>
   </div>
-    <% end %>
+
 
 
   <% if @current_user.is_researcher? %>
     <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
   <% end %>
-  <br>
-</div>

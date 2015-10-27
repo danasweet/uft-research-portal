@@ -56,3 +56,7 @@ end
                                        proposal: Proposal.all.sample)
 
 end
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
