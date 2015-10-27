@@ -1,3 +1,21 @@
-console.log("HELLO")
+console.log("HELLO");
 $('.comments').append(" <%= escape_javascript (render @comment)%> ")
+<% if @comment.stage == "Equipment" %>
+  $('#equipment_comments').append(" <%= escape_javascript (render @comment)%>")
+<% end %>
 
+<% if @comment.stage == "Procedure" %>
+  $('#procedure_comments').append(" <%= escape_javascript (render @comment)%>")
+<% end %>
+
+<% if @comment.stage == "Observations" %>
+  $('#observations_comments').append(" <%= escape_javascript (render @comment)%>")
+<% end %>
+
+<% if @comment.stage == "Results" %>
+  $('#results_comments').append(" <%= escape_javascript (render @comment)%>")
+<% end %>
+
+<% if @comment.stage == "Conclusion" %>
+  $('#conclusion_comments').append(" <%= escape_javascript (render @comment)%>")
+<% end %>

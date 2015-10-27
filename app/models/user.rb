@@ -4,4 +4,9 @@ class User < ActiveRecord::Base
   has_many  :experiments, foreign_key: :researcher_id
 
   has_secure_password
+
+  validates :name, presence: true, uniqueness: true, length: { maximum: 100 }
+  validates :email, presence: true, uniqueness: true
+  validates_format_of :email,:with => /\A([^@\s]+)@((?:uft.)+edu)\z/i
+  validates :password, presence: true
 end
