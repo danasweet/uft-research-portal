@@ -1,8 +1,8 @@
 <h1>Experiment #<%= @experiment.id %>: <%= @experiment.title %></h1>
 <div class="row well">
   <div class='col-md-3'>
-    <h3>Title</h3>
-      <%= @experiment.title %>
+    <h3>Proposal Title</h3>
+      <%= @proposal.title %>
     <h3>Stage</h3>
       <%= @experiment.current_stage %>
   </div>
@@ -33,10 +33,16 @@
 </div>
 
 <h3>Observations</h3>
-<%= @experiment.observations %>
-<div id="observations_comments">
-<%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
-</div>
+<ul>
+<% @experiment.observations.split(", ").each do |obs| %>
+  <li>
+    <%= obs %>
+    <div id="observations_comments">
+      <%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
+    </div>
+  </li>
+</ul>
+<% end %>
 
 <h3>Results</h3>
 <%= @experiment.results %>

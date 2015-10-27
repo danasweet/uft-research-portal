@@ -28,7 +28,7 @@ researchers = []
                           role: "faculty")
 
   researchers << User.create!(name: Faker::Name.name,
-                              email: Faker::Internet.domain_word + "@uft.edu",
+                              email: Faker::Internet.domain_word + "1@uft.edu",
                               password: "password",
                               role: "researcher")
 end
@@ -45,7 +45,7 @@ end
                                           description: Faker::Lorem.sentence,
                                           equipment: equipment.sample(rand(10)),
                                           procedure: procedures.sample,
-                                          observations: observations.sample,
+                                          observations: observations.sample(rand(8)),
                                           results: results.sample,
                                           conclusion: conclusions.sample,
                                           researcher: researchers.sample,
@@ -58,5 +58,3 @@ end
 
 end
 
-# User.create!(name: "faculty", email: "faculty1@uft.edu", password: "password", role: "faculty")
-# User.create!(name: "researcher", email: "researcher1@uft.edu", password: "password", role: "researcher")
