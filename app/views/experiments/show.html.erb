@@ -24,6 +24,11 @@
   <div id="equipment_comments">
     <%= render :partial => "comments/index_equipment.html.erb", :collection => @equipment_comments, as: :equipment_comments  %>
   </div>
+  <button class='experiment_comment_button'>Add Comment</button>
+  <div class = 'experiment_comment_box'>
+  <%= render :partial => "comments/form_equipment.html.erb" %>
+  <button class='cancel_experiment_comment'>Cancel</button>
+</div>
 
 
 <h3>Procedure</h3>
@@ -31,8 +36,16 @@
 <div id="procedure_comments">
 <%= render :partial => "comments/index_procedure.html.erb", :collection => @procedure_comments, as: :comments %>
 </div>
+<button class='experiment_comment_button'>Add Comment</button>
+<div class = 'experiment_comment_box'>
+<%= render :partial => "comments/form_procedure.html.erb" %>
+<button class='cancel_experiment_comment'>Cancel</button>
+
+</div>
+
 
 <h3>Observations</h3>
+
 <ul>
 <% @experiment.observations.split(", ").each do |obs| %>
   <li>
@@ -40,20 +53,39 @@
     <div id="observations_comments">
       <%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
     </div>
+    <button class='experiment_comment_button'>Add Comment</button>
+    <div class = 'experiment_comment_box'>
+      <%= render :partial => "comments/form_observations.html.erb" %>
+    <button class='cancel_experiment_comment'>Cancel</button>
+    </div>
   </li>
 </ul>
 <% end %>
+
 
 <h3>Results</h3>
 <%= @experiment.results %>
 <div id="results_comments">
 <%= render :partial => "comments/index_results.html.erb", :collection => @results_comments, as: :comments %>
 </div>
+<button class='experiment_comment_button'>Add Comment</button>
+<div class = 'experiment_comment_box'>
+<%= render :partial => "comments/form_results.html.erb" %>
+  <button class='cancel_experiment_comment'>Cancel</button>
+
+</div>
+
 
 <h3>Conclusion</h3>
 <%= @experiment.conclusion %>
-<div id="conclusion_comments">
+<div ="conclusion_comments">
 <%= render :partial => "comments/index_conclusion.html.erb", :collection => @conclusion_comments, as: :comments %>
+</div>
+<button id='experiment_comment_button'>Add Comment</button>
+<div class = 'experiment_comment_box'>
+<%= render :partial => "comments/form_conclusion.html.erb" %>
+  <button class='cancel_experiment_comment'>Cancel</button>
+
 </div>
 
 
@@ -67,5 +99,4 @@
             data: { confirm: 'Are you sure?' } %>
 </p>
 
-<%= render :partial => "comments/formExperiment.html.erb" %>
 
