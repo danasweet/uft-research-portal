@@ -1,7 +1,12 @@
-console.log("HELLO");
 $('.comments').append(" <%= escape_javascript (render @comment)%> ")
+$(".experiment_comment_box").val(" ");
+$(".experiment_comment_box").hide();
+$(".experiment_comment_button").show();
+
+
 <% if @comment.stage == "Equipment" %>
   $('#equipment_comments').append(" <%= escape_javascript (render @comment)%>")
+
 <% end %>
 
 <% if @comment.stage == "Procedure" %>

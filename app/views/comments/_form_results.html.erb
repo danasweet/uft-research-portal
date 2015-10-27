@@ -1,0 +1,5 @@
+<%= form_for [@proposal, @experiment, @comment], url: "/proposals/#{@proposal.id}/experiments/#{@experiment.id}/comments", remote: true do |f| %>
+  <%= f.text_area :content, size: "160x3" %>
+  <%= f.hidden_field :stage, :value => "Results" %>
+  <%= f.button :submit %>
+<% end %>

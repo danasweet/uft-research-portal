@@ -15,3 +15,24 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap.min
+$(document).ready(function(){
+
+  $(".experiment_comment_box").css("display", "none");
+  $(".cancel_experiment_comment").css("display","none");
+
+  $(".experiment_comment_button").on("click",function(event){
+    event.preventDefault();
+    $(this).hide();
+    $(".cancel_experiment_comment").show();
+    $(this).next().show();
+  });
+
+  $(".cancel_experiment_comment").on("click",function(event){
+    console.log("HEY");
+    event.preventDefault();
+    $(this).hide();
+    $(".experiment_comment_box").hide();
+    $(".experiment_comment_button").show();
+  })
+
+});
