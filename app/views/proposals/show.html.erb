@@ -19,13 +19,17 @@
 <div class="container">
   <div class='row well well-lg'>
     <h1><%= @proposal.title %></h1>
-    <p>Submitted by: <%=  @proposal.faculty.name %> </p><p>Summary: <%=  @proposal.summary %> </p>
+    <p>Submitted by: <%=  @proposal.faculty.name %> </p>
+    <p>Summary: <%=  @proposal.summary %> </p>
     <p>Hypothesis: <%=  @proposal.hypothesis %> </p>
     <br>
     <% if @current_user.id === @proposal_creator.id  %>
       <%= link_to "Edit", edit_proposal_path  %> | <%= link_to "Delete", proposal_path(@proposal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
+<<<<<<< HEAD
 >>>>>>> master
     <% end %>
+=======
+>>>>>>> master
   </div>
 
   <div class='container'>
@@ -42,23 +46,34 @@
           <li class='divider'></li>
         <% end %>
     </ul>
+    <% end %>
     <h2>Comments</h2>
+
     <br>
     <div class='container well'>
       <%= render :partial => "comments/formProposal.html.erb" %>
       <%= render :partial => "comments/index.html.erb" %>
     </div>
+<<<<<<< HEAD
     <% end %>
 <<<<<<< HEAD
     <%end %>
 <% end %>
 <% end %>
 =======
+=======
+  <% end %>
+>>>>>>> master
   </div>
+
+
 
   <% if @current_user.is_researcher? %>
     <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
   <% end %>
+<<<<<<< HEAD
   <br>
 </div>
+>>>>>>> master
+=======
 >>>>>>> master

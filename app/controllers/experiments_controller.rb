@@ -33,7 +33,6 @@ class ExperimentsController < ApplicationController
     @experiment = Experiment.includes(:comments).find(params[:id])
     @equipment_comments = @experiment.comments.equipment
     @procedure_comments = @experiment.comments.procedure
-    @observations_comments = @experiment.comments.observations
     @results_comments = @experiment.comments.results
     @conclusion_comments = @experiment.comments.conclusion
     @comment = Comment.new
