@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD:uft-research-portal/config/routes.rb
-  resources :proposals do
-    resources :experiments
-  end
-
-=======
 
   resources :proposals do
     resources :experiments
@@ -16,7 +10,7 @@ Rails.application.routes.draw do
 
   post '/proposals/:proposal_id/comments' => 'comments#create', as: 'proposal_comments'
   post '/proposals/:proposal_id/experiments/:experiment_id/comments' => 'comments#create', as: 'experiment_comment'
->>>>>>> master:config/routes.rb
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
