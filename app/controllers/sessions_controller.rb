@@ -1,14 +1,14 @@
 class SessionsController < ApplicationController
 
-  include SessionsHelper
+  # include SessionsHelper
 
   def new
   end
 
   def create
-    user = User.find_by(email: login_params[:email])
-    if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
+    @user = User.find_by(email: login_params[:email])
+    if @user && @user.authenticate(params[:session][:password])
+      session[:user_id] = @user.id
       redirect_to "/"
     else
       render :new

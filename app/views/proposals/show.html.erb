@@ -9,6 +9,7 @@
 <% if @experiment %>
 
 <% @experiments.each do |experiment| %>
+
     <p><%= link_to experiment.title, proposposal_experiment_path(experiment)<p> %>
     <p><%= experiment.title %> </p>
     <p><%= experiment.researcher.name %></p>
@@ -16,3 +17,6 @@
   <br>
 <% end %>
 <% end %>
+
+<%= render :partial => "comments/formProposal.html.erb" %>
+<%= render :partial => "comments/index.html.erb" %>

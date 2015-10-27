@@ -1,5 +1,7 @@
 class ExperimentsController < ApplicationController
 
+  before_filter :authorize
+
   #list of all stubbed experiments associated with a proposal
   def index
     @proposal = Proposal.find(params[:proposal_id])
@@ -28,7 +30,12 @@ class ExperimentsController < ApplicationController
   #display a complete experiment page
   def show
     @proposal = Proposal.find(params[:proposal_id])
-    @experiment = Experiment.find(params[:id])
+    @experiment = Experiment.includes(:comments).find(params[:id])
+    @equipment_comments = @experiment.comments.equipment
+    @procedure_comments = @experiment.comments.procedure
+    @observations_comments = @experiment.comments.observations
+    @results_comments = @experiment.comments.results
+    @conclusion_comments = @experiment.comments.conclusion
     @comment = Comment.new
   end
 

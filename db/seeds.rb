@@ -16,6 +16,8 @@ equipment = ["Aspirator", "Adam Equipment Digital Balance - CQT 202", "Adam Equi
 
 departments = ["Aeronautics & Astronautics", "Anesthesia", "Anthropology", "Applied Physics", "Art & Art History", "Biochemistry", "Bioengineering", "Biology", "Business, Graduate School of", "Cardiothoracic Surgery", "Chemical and Systems Biology", "Chemical Engineering", "Chemistry", "Civil & Environmental Engineering", "Classics", "Communication", "Comparative Literature", "Comparative Medicine", "Computer Science", "Dermatology", "Developmental Biology", "Earth System Science", "East Asian Languages and Cultures", "Economics", "Education, School of", "Electrical Engineering", "Energy Resources Engineering", "English", "French and Italian", "Genetics", "Geological Sciences", "Geophysics", "German Studies", "Health Research & Policy", "History", "Iberian & Latin American Cultures", "Law School", "Linguistics", "Management Science & Engineering", "Materials Science & Engineering", "Mathematics", "Mechanical Engineering", "Medicine", "Microbiology & Immunology", "Molecular & Cellular Physiology", "Music", "Neurobiology", "Neurology & Neurological Sciences", "Neurosurgery", "Obstetrics and Gynecology", "Ophthalmology", "Orthopaedic Surgery", "Otolaryngology (Head and Neck Surgery)", "Particle Physics & Astrophysics (SLAC)", "Pathology", "Pediatrics", "Philosophy", "Physics", "Political Science", "Psychiatry and Behavioral Sciences", "Psychology", "Radiation Oncology", "Radiology", "Religious Studies", "Slavic Languages and Literature", "Sociology", "Statistics", "Structural Biology", "Surgery", "Theater and Performance Studies", "Urology"]
 
+experiment_titles = ["A comprehensive study on the effects", "A peer reviewed study showing the benefits", "A scientific look into the boundaries of the test subject", "A comprehensive into the patterns and observations of the topic", "Topics in observation", "A beneficial moderation of pros and cons", "Partner studies in review", "A review on the patterns of testing", "Comprehensive study I", "Peer Review IV", "Observations III", "Cost Benefit Analysis", "A look into the benefits", "A look into the costs"]
+
 50.times do
   User.create!(name: Faker::Name.name,
                email: Faker::Internet.domain_word + "@uft.edu",
@@ -30,7 +32,8 @@ departments = ["Aeronautics & Astronautics", "Anesthesia", "Anthropology", "Appl
                                     active: 1,
                                     faculty: User.all.sample)
 
-  Proposal.all.sample.experiments.create!(description: Faker::Lorem.sentence,
+  Proposal.all.sample.experiments.create!(title: experiment_titles.sample,
+                                          description: Faker::Lorem.sentence,
                                           equipment: equipment.sample(rand(10)),
                                           procedure: procedures.sample,
                                           observations: observations.sample,
@@ -46,5 +49,5 @@ departments = ["Aeronautics & Astronautics", "Anesthesia", "Anthropology", "Appl
 
 end
 
-User.create!(name: "faculty", email: "faculty@email.com", password: "password", role: "faculty")
-User.create!(name: "researcher", email: "researcher@user.com", password: "password", role: "researcher")
+User.create!(name: "faculty", email: "faculty1@uft.edu", password: "password", role: "faculty")
+User.create!(name: "researcher", email: "researcher1@uft.edu", password: "password", role: "researcher")

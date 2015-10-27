@@ -1,17 +1,21 @@
 class ProposalsController < ApplicationController
+  respond_to :html, :js
+
+  before_filter :authorize
+  # before_filter :is_faculty?, :except => [:index, :show]
 
   def index
     @proposals = Proposal.all
   end
 
-  def new 
+  def new
     @proposal = Proposal.new
   end
 
-  def create 
+  def create
     @proposal = Proposal.create!(proposal_params)
     @proposal.faculty = User.find_by(id: session[:user_id])
-    @proposal.save 
+    @proposal.save
       if @proposal.valid?
         redirect_to proposal_path(@proposal)
       else
@@ -41,7 +45,6 @@ class ProposalsController < ApplicationController
     @proposal.destroy
     redirect_to proposals_path
   end
-
 
   private
 
