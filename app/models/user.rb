@@ -10,8 +10,18 @@ class User < ActiveRecord::Base
   validates_format_of :email,:with => /\A([^@\s]+)@((?:uft.)+edu)\z/i
   validates :password, presence: true
 
+<<<<<<< HEAD
+  def is_faculty?
+    self.role == "faculty" ? true : false
+  end
+
+  def is_researcher?
+    self.role == "researcher" ? true : false
+  end
+=======
   def is_researcher?
     self.role == "researcher" ? true : false
   end
 
+>>>>>>> master
 end

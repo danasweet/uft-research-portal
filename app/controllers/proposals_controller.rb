@@ -2,6 +2,10 @@ class ProposalsController < ApplicationController
   respond_to :html, :js
 
   before_filter :authorize
+<<<<<<< HEAD
+ 
+=======
+>>>>>>> master
 
   def index
     @proposals = Proposal.all
@@ -9,6 +13,7 @@ class ProposalsController < ApplicationController
 
   def new
     @proposal = Proposal.new
+    @current_user = User.find(session[:user_id])
   end
 
   def create
@@ -24,6 +29,7 @@ class ProposalsController < ApplicationController
 
   def edit
     @proposal = Proposal.find(params[:id])
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def update
@@ -33,8 +39,13 @@ class ProposalsController < ApplicationController
   end
 
   def show
+<<<<<<< HEAD
+    @current_user = User.find_by(id: session[:user_id])
+=======
     @user = User.find(session[:user_id])
+>>>>>>> master
     @proposal = Proposal.find(params[:id])
+    @proposal_creator = @proposal.faculty
     @comments = @proposal.comments
     @experiments = @proposal.experiments
     @comment = Comment.new
