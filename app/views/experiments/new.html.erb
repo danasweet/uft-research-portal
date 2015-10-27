@@ -11,5 +11,7 @@
   <%= f.label :procedure %>:
   <%= f.text_field :procedure %><br />
 
+  <%= f.hidden_field :researcher_id, :value => session[:user_id] %>
+
   <%= f.submit %>
 <% end %>

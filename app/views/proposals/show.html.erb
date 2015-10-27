@@ -15,7 +15,7 @@
             <p><%= experiment.description %></p>
           <br>
     <% end %>
-<% end %>
+  <% end %>
 
 <h2>Comments</h2>
 <br>
@@ -26,14 +26,16 @@
 <% if @current_user.is_researcher? %>
 <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
 <br>
-  <% if @experiments %>
+    <% if @experiments %>
         <% @experiments.each do |experiment| %>
-         <% if @current_user.id ===experiment.researcher.id %>
-           <h3><%= experiment.title %></h3>
-            <p>Researcher: <%= experiment.researcher.name %></p>
-            <p><%= experiment.description %></p>
-          <br>
-    <% end %>
-    <%end %>
+        <% if @current_user.id === experiment.researcher.id %>
+                 <h3><%= experiment.title %></h3>
+                  <p>Researcher: <%= experiment.researcher.name %></p>
+                  <p><%= experiment.description %></p>
+                <br>
+        <% end %>
+      <%end %>
+  <% end %>
 <% end %>
-<% end %>
+
+
