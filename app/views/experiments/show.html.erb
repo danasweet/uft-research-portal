@@ -5,16 +5,39 @@
 <%= @experiment.title %>
 <h3>Description</h3>
 <%= @experiment.description %>
-<h3>Equipment</h3>
-<%= @experiment.equipment %>
+
+  <h3>Equipment</h3>
+  <%= @experiment.equipment %>
+
+  <br>
+  <div id="equipment_comments">
+    <%= render :partial => "comments/index_equipment.html.erb", :collection => @equipment_comments, as: :equipment_comments  %>
+  </div>
+
+
 <h3>Procedure</h3>
 <%= @experiment.procedure %>
+<div id="procedure_comments">
+<%= render :partial => "comments/index_procedure.html.erb", :collection => @procedure_comments, as: :comments %>
+</div>
+
 <h3>Observations</h3>
 <%= @experiment.observations %>
+<div id="observations_comments">
+<%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
+</div>
+
 <h3>Results</h3>
 <%= @experiment.results %>
+<div id="results_comments">
+<%= render :partial => "comments/index_results.html.erb", :collection => @results_comments, as: :comments %>
+</div>
+
 <h3>Conclusion</h3>
 <%= @experiment.conclusion %>
+<div id="conclusion_comments">
+<%= render :partial => "comments/index_conclusion.html.erb", :collection => @conclusion_comments, as: :comments %>
+</div>
 
 
 <p>
@@ -28,5 +51,4 @@
 </p>
 
 <%= render :partial => "comments/formExperiment.html.erb" %>
-<%= render :partial => "comments/index.html.erb" %>
 

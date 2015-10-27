@@ -1,1 +1,20 @@
-Still need to create edit form.
+<h1>Edit Your Proposal</h1>
+
+<%= form_for @proposal, url: proposal_path do |f| %>
+    <p> Title:
+      <%= f.text_field :title, placeholder: 'Title' %>
+    </p>
+    <p> Department:
+      <%= f.text_field :department, placeholder: 'Department' %>
+    </p>
+    <p> Summary:
+      <%= f.text_area :summary, placeholder: 'Summary' %>
+    </p>
+    <p> Hypothesis:
+      <%= f.text_field :hypothesis, placeholder: 'Hypothesis' %>
+    </p>
+   
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
