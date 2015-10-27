@@ -26,41 +26,48 @@
   </div>
   <button class='experiment_comment_button'>Add Comment</button>
   <div class = 'experiment_comment_box'>
-  <%= render :partial => "comments/form_equipment.html.erb" %>
+    <%= render :partial => "comments/form_equipment.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
 </div>
 
 
 <h3>Procedure</h3>
-<%= @experiment.procedure %>
+  <%= @experiment.procedure %>
 <div id="procedure_comments">
-<%= render :partial => "comments/index_procedure.html.erb", :collection => @procedure_comments, as: :comments %>
+  <%= render :partial => "comments/index_procedure.html.erb", :collection => @procedure_comments, as: :comments %>
 </div>
 <button class='experiment_comment_button'>Add Comment</button>
 <div class = 'experiment_comment_box'>
-<%= render :partial => "comments/form_procedure.html.erb" %>
+  <%= render :partial => "comments/form_procedure.html.erb" %>
 <button class='cancel_experiment_comment'>Cancel</button>
-
 </div>
 
 
 <h3>Observations</h3>
 
-<ul>
-<% @experiment.observations.split(", ").each do |obs| %>
-  <li>
-    <%= obs %>
-    <div id="observations_comments">
-      <%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
-    </div>
-    <button class='experiment_comment_button'>Add Comment</button>
-    <div class = 'experiment_comment_box'>
-      <%= render :partial => "comments/form_observations.html.erb" %>
-    <button class='cancel_experiment_comment'>Cancel</button>
-    </div>
-  </li>
-</ul>
-<% end %>
+<div class="container">
+  <ul class='list-unstyled'>
+    <% @experiment.observations.split(", ").each do |obs| %>
+      <div class="row">
+        <div class="col-md-7">
+        <li>
+          <%= obs %>
+        </div>
+        <div class="col-md-5">
+          <div id="observations_comments">
+            <%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
+          </div>
+          <button class='experiment_comment_button'>Add Comment</button>
+          <div class = 'experiment_comment_box'>
+            <%= render :partial => "comments/form_observations.html.erb" %>
+          <button class='cancel_experiment_comment'>Cancel</button>
+          </div>
+        </li>
+      </div>
+    </ul>
+  <% end %>
+  </div>
+</div>
 
 
 <h3>Results</h3>

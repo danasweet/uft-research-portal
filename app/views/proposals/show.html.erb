@@ -11,8 +11,6 @@
     <ul class='list-unstyled'>
     <% @experiments.each do |experiment| %>
       <li>
-        <!-- Once titles are in our seeds, I'll add links for them. I removed the code for title links in order to avoid nil errors -->
-
         <h3><%= experiment.title %></h3>
         <p><%= experiment.researcher.name %></p>
         <p><%= experiment.description %> </p>
