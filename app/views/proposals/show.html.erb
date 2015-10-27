@@ -8,14 +8,13 @@
 
 <% if @experiment %>
 
-<% @experiments.each do |experiment| %>
+  <% @experiments.each do |experiment| %>
 
-    <p><%= link_to experiment.title, proposposal_experiment_path(experiment)<p> %>
-    <p><%= experiment.title %> </p>
-    <p><%= experiment.researcher.name %></p>
-    <p><%= experiment.description %> </p>
-  <br>
-<% end %>
+      <p><%= link_to experiment.title, proposal_experiment_path %></p>
+      <p><%= experiment.researcher.name %></p>
+      <p><%= experiment.description %> </p>
+    <br>
+  <% end %>
 <% end %>
 
 <%= render :partial => "comments/formProposal.html.erb" %>
