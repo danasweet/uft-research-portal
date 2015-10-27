@@ -2,7 +2,6 @@ class ProposalsController < ApplicationController
   respond_to :html, :js
 
   before_filter :authorize
-  # before_filter :is_faculty?, :except => [:index, :show]
 
   def index
     @proposals = Proposal.all
@@ -34,6 +33,7 @@ class ProposalsController < ApplicationController
   end
 
   def show
+    @user = User.find(session[:user_id])
     @proposal = Proposal.find(params[:id])
     @comments = @proposal.comments
     @experiments = @proposal.experiments

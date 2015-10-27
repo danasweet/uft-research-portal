@@ -71,15 +71,17 @@
 
 </div>
 
+<% if session[:user_id] == @experiment.researcher_id %>
+  <p>
+    <%= link_to 'Edit', edit_proposal_experiment_path %>
+  </p>
+  <p>
+    <%=   link_to 'Delete', proposal_experiment_path,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
 
-<p>
-  <%= link_to 'Edit', edit_proposal_experiment_path %>
-</p>
-
-<p>
-  <%=   link_to 'Delete', proposal_experiment_path,
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %>
-</p>
-
-
+<% if session[:user_id] == @experiment.researcher_id || @experiment.proposal.faculty_id%>
+  <%= render :partial => "comments/formExperiment.html.erb" %>
+<% end %>

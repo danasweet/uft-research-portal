@@ -3,29 +3,33 @@
     <h1><%= @proposal.title %></h1>
     <p>Submitted by: <%=  @proposal.faculty.name %> </p><p>Summary: <%=  @proposal.summary %> </p>
     <p>Hypothesis: <%=  @proposal.hypothesis %> </p>
-    <br>
-    <%= link_to "Edit", edit_proposal_path  %> | <%= link_to "Delete", proposal_path(@proposal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %> | <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
-  </div>
 
-  <div class='container'>
-    <ul class='list-unstyled'>
+<%= link_to "Edit", edit_proposal_path  %> | <%= link_to "Delete", proposal_path(@proposal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %> | <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
+
+<% if @user.is_researcher? %>
+  <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
+<% end %>
+
+<br>
+
+<div class='container'>
+  <ul class='list-unstyled'>
+  <% if @experiments %>
+  <h2>Experiments</h2>
     <% @experiments.each do |experiment| %>
-      <li>
-        <!-- Once titles are in our seeds, I'll add links for them. I removed the code for title links in order to avoid nil errors -->
-
-        <h5><%= experiment.title %></h5>
-        <p><%= experiment.researcher.name %></p>
-        <p><%= experiment.description %> </p>
-        <br>
+     <li>
+      <h3><%= experiment.title %></h3>
+      <p>Researcher: <%= experiment.researcher.name %></p>
+      <p><%= experiment.description %> </p>
       </li>
-      <li class='divider'></li>
-    <% end %>
-    </ul>
-  </div>
-
+    <li class='divider'></li><br>
+  <% end %>
+  </ul>
+</div>
 
 </div>
 <div class='container well'>
+<h2>Comments</h2>
   <%= render :partial => "comments/formProposal.html.erb" %>
   <%= render :partial => "comments/index.html.erb" %>
 </div>

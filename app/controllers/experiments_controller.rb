@@ -1,27 +1,29 @@
 class ExperimentsController < ApplicationController
 
   before_filter :authorize
+  before_filter :validate, :except => [:index, :new, :create]
 
   #list of all stubbed experiments associated with a proposal
-  def index
-    @proposal = Proposal.find(params[:proposal_id])
-    @comments = @proposal.comments
-    @experiments = @proposal.experiments
-  end
+  # def index
+  #   @proposal = Proposal.find(params[:proposal_id])
+  #   @comments = @proposal.comments
+  #   @experiments = @proposal.experiments
+  #   render :file => "/public/500.html",  :status => 500 unless session[:user_id] == @proposal.faculty_id
+  # end
 
   #create a new experiment
   def new
+    @user = User.find(session[:user_id])
     @experiment = Experiment.new
+    render :file => "/public/500.html",  :status => 500 unless @user.is_researcher?
   end
 
   #create a new experiment
   def create
-    #test how to hook up the user correctly?
-    # @researcher = User.find(session[:user_id])
     @proposal = Proposal.find(params[:proposal_id])
     @experiment = @proposal.experiments.build(experiment_params)
       if @experiment.save
-        redirect_to proposal_experiments_path
+        redirect_to "/proposals/#{@proposal.id}/experiments/#{@experiment.id}"
       else
         render 'new'
       end
@@ -29,6 +31,7 @@ class ExperimentsController < ApplicationController
 
   #display a complete experiment page
   def show
+    @user = User.find(session[:user_id])
     @proposal = Proposal.find(params[:proposal_id])
     @experiment = Experiment.includes(:comments).find(params[:id])
     @equipment_comments = @experiment.comments.equipment
