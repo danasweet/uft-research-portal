@@ -1,8 +1,8 @@
-<h1>Lab Portal - Team Queen  </h1>
+<h1>Proposals</h1>
 
 <% @proposals.each do |proposal| %>
   <ul>
-    <h2><%= proposal.title %></h2>
+    <h2><%= link_to proposal.title, proposal_path(proposal) %></h2>
     <p>Department: <%= proposal.department %>
     <p>Summary: <%= proposal.summary %>
     <br>
