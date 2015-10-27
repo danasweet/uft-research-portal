@@ -1,4 +1,15 @@
 <h1>Experiment #<%= @experiment.id %>: <%= @experiment.title %></h1>
+<<<<<<< HEAD
+<h3>Stage</h3>
+<%= @experiment.current_stage %>
+<h3>Title</h3>
+<%= @experiment.title %>
+<h3>Description</h3>
+<%= @experiment.description %>
+
+  <h3>Equipment</h3>
+  <%= @experiment.equipment %>
+=======
 <div class="row well">
   <div class='col-md-3'>
     <h3>Proposal Title</h3>
@@ -21,6 +32,7 @@
 </div>
 
   <br>
+>>>>>>> master
   <div id="equipment_comments">
     <%= render :partial => "comments/index_equipment.html.erb", :collection => @equipment_comments, as: :equipment_comments  %>
   </div>
@@ -44,10 +56,20 @@
 
 
 <h3>Observations</h3>
+<<<<<<< HEAD
+<%= @experiment.observations %>
+<div id="observations_comments">
+<%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
+</div>
+<button class='experiment_comment_button'>Add Comment</button>
+<div class = 'experiment_comment_box'>
+<%= render :partial => "comments/form_observations.html.erb" %>
+  <button class='cancel_experiment_comment'>Cancel</button>
+=======
 
 <div class="container">
   <ul class='list-unstyled'>
-    <% @experiment.observations.split(", ").each do |obs| %>
+    <% @experiment.observations.each do |obs| %>
       <div class="row">
         <div class="col-md-7">
         <li>
@@ -55,7 +77,7 @@
         </div>
         <div class="col-md-5">
           <div id="observations_comments">
-            <%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
+
           </div>
           <button class='experiment_comment_button'>Add Comment</button>
           <div class = 'experiment_comment_box'>
@@ -67,6 +89,7 @@
     </ul>
   <% end %>
   </div>
+>>>>>>> master
 </div>
 
 
@@ -79,7 +102,6 @@
 <div class = 'experiment_comment_box'>
 <%= render :partial => "comments/form_results.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
-
 </div>
 
 
@@ -92,7 +114,6 @@
 <div class = 'experiment_comment_box'>
 <%= render :partial => "comments/form_conclusion.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
-
 </div>
 
 <% if session[:user_id] == @experiment.researcher_id %>
