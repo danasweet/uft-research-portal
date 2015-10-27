@@ -4,6 +4,7 @@ class ExperimentsController < ApplicationController
   def index
     #does rails just know this automatically?
     @proposal = Proposal.find(params[:proposal_id])
+    @comments = @proposal.comments
     @experiments = @proposal.experiments
   end
 
@@ -27,7 +28,9 @@ class ExperimentsController < ApplicationController
 
   #display a complete experiment page
   def show
+    @proposal = Proposal.find(params[:proposal_id])
     @experiment = Experiment.find(params[:id])
+    @comment = Comment.new
   end
 
   #edit an existing experiment

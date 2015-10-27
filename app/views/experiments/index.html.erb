@@ -2,5 +2,6 @@
 <h3>Current Experiments</h3>
   <% @experiments.each do |experiment| %>
     <h4><%= experiment.title %></h4>
-    <p><%= experiment.description %></p>
+    <p>Stage: <%= experiment.current_stage %></p>
+    <p>Description: <%= experiment.description %></p>
   <% end %>
