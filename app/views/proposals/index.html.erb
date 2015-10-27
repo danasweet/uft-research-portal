@@ -1,6 +1,9 @@
 <div class="container">
-  <h1>Proposals</h1>
 
+<h1>Proposals</h1>
+  <% if current_user.role == "faculty" %>
+    <%= link_to "Submit a New Proposal", new_proposal_path, class: 'button'  %>
+    <% end %>
   <div class="row">
     <div class='col-md-3 col-md-offset-1'>
       <h3>Department</h3>

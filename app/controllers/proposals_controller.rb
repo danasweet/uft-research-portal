@@ -37,7 +37,6 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
     @comments = @proposal.comments
     @experiments = @proposal.experiments
-    # @comment = Comment.new
     @comment = Comment.new
   end
 
