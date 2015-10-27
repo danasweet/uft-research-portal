@@ -1,0 +1,21 @@
+<h1>Submit a New Proposal</h1>
+
+
+<%= form_for @proposal, url: proposals_path do |f| %>
+    <p>
+      <%= f.text_field :title, placeholder: 'Title' %>
+    </p>
+    <p>
+      <%= f.text_field :department, placeholder: 'Department' %>
+    </p>
+    <p>
+      <%= f.text_area :summary, placeholder: 'Summary' %>
+    </p>
+    <p>
+      <%= f.text_field :hypothesis, placeholder: 'Hypothesis' %>
+    </p>
+   
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>

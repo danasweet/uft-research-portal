@@ -1,2 +1,6 @@
-<%= comment.content %>
-<%= comment.commenter %>
+<div>
+  <%= comment.content %>
+  <% if comment.commenter %>
+    <%= comment.commenter.name %>
+  <% end %>
+</div>
