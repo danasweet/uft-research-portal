@@ -1,4 +1,5 @@
 <h1>Experiment #<%= @experiment.id %>: <%= @experiment.title %></h1>
+<<<<<<< HEAD
 <h3>Stage</h3>
 <%= @experiment.current_stage %>
 <h3>Title</h3>
@@ -8,29 +9,54 @@
 
   <h3>Equipment</h3>
   <%= @experiment.equipment %>
+=======
+<div class="row well">
+  <div class='col-md-3'>
+    <h3>Proposal Title</h3>
+      <%= @proposal.title %>
+    <h3>Stage</h3>
+      <%= @experiment.current_stage %>
+  </div>
+  <div class='col-md-6'>
+    <h3>Description</h3>
+      <%= @experiment.description %>
+  </div>
+  <div class='col-md-3'>
+    <h3>Equipment</h3>
+    <ul class='list-unstyled'>
+      <% @experiment.equipment.split(", ").each do |tool| %>
+        <li><%= tool %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+  <br>
+>>>>>>> master
   <div id="equipment_comments">
     <%= render :partial => "comments/index_equipment.html.erb", :collection => @equipment_comments, as: :equipment_comments  %>
   </div>
   <button class='experiment_comment_button'>Add Comment</button>
   <div class = 'experiment_comment_box'>
-  <%= render :partial => "comments/form_equipment.html.erb" %>
+    <%= render :partial => "comments/form_equipment.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
 </div>
 
 
 <h3>Procedure</h3>
-<%= @experiment.procedure %>
+  <%= @experiment.procedure %>
 <div id="procedure_comments">
-<%= render :partial => "comments/index_procedure.html.erb", :collection => @procedure_comments, as: :comments %>
+  <%= render :partial => "comments/index_procedure.html.erb", :collection => @procedure_comments, as: :comments %>
 </div>
 <button class='experiment_comment_button'>Add Comment</button>
 <div class = 'experiment_comment_box'>
-<%= render :partial => "comments/form_procedure.html.erb" %>
+  <%= render :partial => "comments/form_procedure.html.erb" %>
 <button class='cancel_experiment_comment'>Cancel</button>
 </div>
 
 
 <h3>Observations</h3>
+<<<<<<< HEAD
 <%= @experiment.observations %>
 <div id="observations_comments">
 <%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
@@ -39,6 +65,31 @@
 <div class = 'experiment_comment_box'>
 <%= render :partial => "comments/form_observations.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
+=======
+
+<div class="container">
+  <ul class='list-unstyled'>
+    <% @experiment.observations.split(", ").each do |obs| %>
+      <div class="row">
+        <div class="col-md-7">
+        <li>
+          <%= obs %>
+        </div>
+        <div class="col-md-5">
+          <div id="observations_comments">
+            <%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
+          </div>
+          <button class='experiment_comment_button'>Add Comment</button>
+          <div class = 'experiment_comment_box'>
+            <%= render :partial => "comments/form_observations.html.erb" %>
+          <button class='cancel_experiment_comment'>Cancel</button>
+          </div>
+        </li>
+      </div>
+    </ul>
+  <% end %>
+  </div>
+>>>>>>> master
 </div>
 
 
