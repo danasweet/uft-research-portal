@@ -5,7 +5,7 @@ class CreateProposals < ActiveRecord::Migration
       t.string :summary
       t.string :hypothesis
       t.string :department
-      t.integer :active
+      t.integer :active 
       t.integer :faculty_id
       t.timestamps
     end

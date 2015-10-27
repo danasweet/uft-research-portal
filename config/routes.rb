@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   post '/proposals/:proposal_id/comments' => 'comments#create', as: 'proposal_comments'
   post '/proposals/:proposal_id/experiments/:experiment_id/comments' => 'comments#create', as: 'experiment_comment'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
