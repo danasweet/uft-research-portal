@@ -1,6 +1,9 @@
 class ProposalsController < ApplicationController
   respond_to :html, :js
 
+  before_filter :authorize
+  # before_filter :is_faculty?, :except => [:index, :show]
+
   def index
     @proposals = Proposal.all
   end

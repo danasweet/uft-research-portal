@@ -1,5 +1,7 @@
 class ExperimentsController < ApplicationController
 
+  before_filter :authorize
+
   #list of all stubbed experiments associated with a proposal
   def index
     @proposal = Proposal.find(params[:proposal_id])
