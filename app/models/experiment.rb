@@ -1,5 +1,6 @@
 class Experiment < ActiveRecord::Base
   has_many    :comments, as: :commentable
+  has_many :observations, foreign_key: :experiment_id
   belongs_to  :researcher, class_name: :User
   belongs_to  :proposal
 
