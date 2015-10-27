@@ -1,7 +1,7 @@
-<%= @proposal.title %>
+<h1><%= @proposal.title %></h1>
+<p>Submitted by: <%=  @proposal.faculty.name %> </p><p>Summary: <%=  @proposal.summary %> </p>
+<p>Hypothesis: <%=  @proposal.hypothesis %> </p>
 
-<%= render :partial => "comments/formProposal.html.erb" %>
-<%= render :partial => "comments/index.html.erb" %>
 
-
+<%= link_to "Edit", edit_proposal_path  %> | <%= link_to "Delete" %>  
 
