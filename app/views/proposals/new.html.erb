@@ -1,5 +1,6 @@
-<h1>Submit a New Proposal</h1>
+<% if @current_user.is_faculty? %>
 
+<h1>Submit a New Proposal</h1>
 
 <%= form_for @proposal, url: proposals_path do |f| %>
     
@@ -13,3 +14,4 @@
       <br>
       <%= f.submit %>
   <% end %>
+<% end %>
