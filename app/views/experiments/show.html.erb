@@ -1,3 +1,19 @@
+<h1>Experiment #<%= @experiment.id %>: <%= @experiment.title %></h1>
+<h3>Description</h3>
+<%= @experiment.description %>
+<h3>Equipment</h3>
+<%= @experiment.equipment %>
+<h3>Procedure</h3>
+<%= @experiment.procedure %>
+<h3>Observations</h3>
+<%= @experiment.observations %>
+<h3>Results</h3>
+<%= @experiment.results %>
+<h3>Conclusion</h3>
+<%= @experiment.conclusion %>
+
+
+<p><%= link_to 'Edit', edit_proposal_experiment_path %></p>
 
 <%= render :partial => "comments/formExperiment.html.erb" %>
 <%= render :partial => "comments/index.html.erb" %>
