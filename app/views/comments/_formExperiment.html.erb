@@ -1,5 +1,11 @@
-<%= form_for [@proposal, @experiment, @comment], url: "/proposals/:proposal_id/experiments/:experiment_id/comments", remote: true do |f| %>
+<%= form_for [@proposal, @experiment, @comment], url: "/proposals/#{@proposal.id}/experiments/#{@experiment.id}/comments", remote: true do |f| %>
   <%= f.text_field :content %>
-  <%= f.text_field :stage %>
+  <select name="stage">
+    <option>Equipment</option>
+    <option>Procedure</option>
+    <option>Observations</option>
+    <option>Results</option>
+    <option>Conclusion</option>
+  </select>
   <%= f.button :submit %>
 <% end %>
