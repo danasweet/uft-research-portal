@@ -2,20 +2,14 @@
 
 
 <%= form_for @proposal, url: proposals_path do |f| %>
-    <p>
+    
       <%= f.text_field :title, placeholder: 'Title' %>
-    </p>
-    <p>
+      <br>
       <%= f.text_field :department, placeholder: 'Department' %>
-    </p>
-    <p>
+      <br>
       <%= f.text_area :summary, placeholder: 'Summary' %>
-    </p>
-    <p>
+      <br>
       <%= f.text_field :hypothesis, placeholder: 'Hypothesis' %>
-    </p>
-   
-    <p>
+      <br>
       <%= f.submit %>
-    </p>
   <% end %>
