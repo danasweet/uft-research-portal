@@ -21,7 +21,7 @@ experiment_titles = ["A comprehensive study on the effects", "A peer reviewed st
 50.times do
   User.create!(name: Faker::Name.name,
                email: Faker::Internet.domain_word + "@uft.edu",
-               password: Faker::Internet.password,
+               password: "password",
                role: roles.sample)
 
 
@@ -49,5 +49,5 @@ experiment_titles = ["A comprehensive study on the effects", "A peer reviewed st
 
 end
 
-User.create!(name: "faculty", email: "faculty1@uft.edu", password: "password", role: "faculty")
-User.create!(name: "researcher", email: "researcher1@uft.edu", password: "password", role: "researcher")
+# User.create!(name: "faculty", email: "faculty1@uft.edu", password: "password", role: "faculty")
+# User.create!(name: "researcher", email: "researcher1@uft.edu", password: "password", role: "researcher")

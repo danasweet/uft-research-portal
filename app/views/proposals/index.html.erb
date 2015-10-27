@@ -1,16 +1,32 @@
-<h1>Proposals</h1>
+<div class="container">
+  <h1>Proposals</h1>
 
-<% @proposals.each do |proposal| %>
-  <ul>
-    <h2><%= link_to proposal.title, proposal_path(proposal) %></h2>
-    <p>Department: <%= proposal.department %>
-    <p>Summary: <%= proposal.summary %>
-    <br>
-  </ul>
-<%end%>
-
-
-
-
-
-
+  <div class="row">
+    <div class='col-md-3 col-md-offset-1'>
+      <h3>Department</h3>
+    </div>
+    <div class='col-md-8 col-offset-1'>
+      <h3>Proposal</h3>
+    </div>
+  </div>
+  <% @proposals.each do |proposal| %>
+  <div class="container">
+    <div class="row">
+      <div class='col-md-1 star'>
+        <br>
+        <% if proposal.faculty == current_user %>
+          <i class='glyphicon glyphicon-star'></i>
+        <% end %>
+      </div>
+      <div class='col-md-3'>
+        <br>
+        <h4><%= proposal.department %></h4>
+      </div>
+      <div class='col-md-8'>
+        <h2><%= link_to proposal.title, proposal_path(proposal) %></h2>
+        <p>Summary: <%= proposal.summary %></p>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
