@@ -3,10 +3,9 @@
 <p>Summary: <%=  @proposal.summary %></p>
 <br>
 
-<<<<<<< HEAD
 <% if @current_user.id === @proposal_creator.id  %>
 
-  <%= link_to "Edit", edit_proposal_path  %> | <%= link_to "Delete", proposal_path(@proposal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %> 
+  <%= link_to "Edit", edit_proposal_path  %> | <%= link_to "Delete", proposal_path(@proposal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
 
   <h2>Experiments</h2>
       <% if @experiments %>
@@ -38,28 +37,3 @@
     <%end %>
 <% end %>
 <% end %>
-=======
-
-<%= link_to "Edit", edit_proposal_path  %> | <%= link_to "Delete", proposal_path(@proposal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %> |
-
-<% if @user.is_researcher? %>
-  <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
-<% end %>
-
-<br>
-
-<% if @experiments %>
-  <h2>Experiments</h2>
-  <% @experiments.each do |experiment| %>
-     <h3><%= experiment.title %></h3>
-      <p>Researcher: <%= experiment.researcher.name %></p>
-      <p><%= experiment.description %> </p>
-    <br>
-  <% end %>
-<% end %>
-
-  <h2>Comments</h2>
-  <br>
-  <%= render :partial => "comments/formProposal.html.erb" %>
-  <%= render :partial => "comments/index.html.erb" %>
->>>>>>> master
