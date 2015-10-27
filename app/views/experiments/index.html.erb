@@ -3,5 +3,6 @@
   <% @experiments.each do |experiment| %>
     <h4><%= experiment.title %></h4>
     <p>Stage: <%= experiment.current_stage %></p>
+    <p>Title: <%= experiment.title %></p>
     <p>Description: <%= experiment.description %></p>
   <% end %>
