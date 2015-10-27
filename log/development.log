@@ -6897,3 +6897,11 @@ ActiveRecord::RecordNotFound (Couldn't find Proposal with 'id'=:proposal_id):
   Rendered /Users/Dana/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/Dana/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
   Rendered /Users/Dana/.rbenv/versions/2.2.1/lib/ruby/gems/2.2.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (117.3ms)
+
+
+Started GET "/proposals/1/experiments/1/edit" for ::1 at 2015-10-26 20:55:00 -0500
+Processing by ExperimentsController#edit as HTML
+  Parameters: {"proposal_id"=>"1", "id"=>"1"}
+  [1m[36mExperiment Load (0.2ms)[0m  [1mSELECT  "experiments".* FROM "experiments" WHERE "experiments"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered experiments/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 65ms (Views: 50.5ms | ActiveRecord: 1.2ms)
