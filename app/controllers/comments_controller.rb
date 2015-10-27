@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    puts "HEY YOU GOT HERE"
     form_params = params["comment"]
     @proposal = Proposal.find(params[:proposal_id])
     @experiment = @proposal.experiments.find_by(id: params[:experiment_id])
