@@ -15,7 +15,7 @@
       <% if @experiments %>
         <% @experiments.each do |experiment| %>
           <li>
-            <h3><%= experiment.title %></h3>
+            <h3><%= link_to experiment.title, experiment_path(@proposal, experiment) %></h3>
             <p><%= experiment.researcher.name %></p>
             <p><%= experiment.description %> </p>
             <br>
