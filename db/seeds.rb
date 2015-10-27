@@ -45,7 +45,6 @@ end
                                           description: Faker::Lorem.sentence,
                                           equipment: equipment.sample(rand(10)),
                                           procedure: procedures.sample,
-                                          observations: observations.sample(rand(8)),
                                           results: results.sample,
                                           conclusion: conclusions.sample,
                                           researcher: researchers.sample,
