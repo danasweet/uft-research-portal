@@ -9,9 +9,6 @@ class ApplicationController < ActionController::Base
     redirect_to sessions_new_path unless logged_in?
   end
 
-  # def is_faculty?
-  #   redirect_to :back unless @user.role == "faculty"
-  # end
 
   # def is_researcher?
 
