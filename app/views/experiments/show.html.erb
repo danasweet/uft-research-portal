@@ -8,8 +8,6 @@
 
   <h3>Equipment</h3>
   <%= @experiment.equipment %>
-
-  <br>
   <div id="equipment_comments">
     <%= render :partial => "comments/index_equipment.html.erb", :collection => @equipment_comments, as: :equipment_comments  %>
   </div>
@@ -29,7 +27,6 @@
 <div class = 'experiment_comment_box'>
 <%= render :partial => "comments/form_procedure.html.erb" %>
 <button class='cancel_experiment_comment'>Cancel</button>
-
 </div>
 
 
@@ -42,7 +39,6 @@
 <div class = 'experiment_comment_box'>
 <%= render :partial => "comments/form_observations.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
-
 </div>
 
 
@@ -55,7 +51,6 @@
 <div class = 'experiment_comment_box'>
 <%= render :partial => "comments/form_results.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
-
 </div>
 
 
@@ -68,7 +63,6 @@
 <div class = 'experiment_comment_box'>
 <%= render :partial => "comments/form_conclusion.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
-
 </div>
 
 <% if session[:user_id] == @experiment.researcher_id %>
