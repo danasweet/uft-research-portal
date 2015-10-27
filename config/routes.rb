@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  get '/proposals/:proposal_id' => 'proposals#show', as: 'proposal'
+  resources :proposals do
+    resources :experiments
+  end
+
+  # get '/proposals/:proposal_id' => 'proposals#show', as: 'proposal'
   get '/proposals/:proposal_id/experiments/:experiment_id' => 'experiments#show', as: 'experiment'
 
 
