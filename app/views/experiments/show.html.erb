@@ -1,4 +1,6 @@
 <h1>Experiment #<%= @experiment.id %>: <%= @experiment.title %></h1>
+<h3>Stage</h3>
+<%= @experiment.current_stage %>
 <h3>Description</h3>
 <%= @experiment.description %>
 <h3>Equipment</h3>
@@ -13,7 +15,15 @@
 <%= @experiment.conclusion %>
 
 
-<p><%= link_to 'Edit', edit_proposal_experiment_path %></p>
+<p>
+  <%= link_to 'Edit', edit_proposal_experiment_path %>
+</p>
+
+<p>
+  <%=   link_to 'Delete', proposal_experiment_path,
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+</p>
 
 <%= render :partial => "comments/formExperiment.html.erb" %>
 <%= render :partial => "comments/index.html.erb" %>
