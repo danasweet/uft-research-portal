@@ -57,4 +57,3 @@ end
                                        proposal: Proposal.all.sample)
 
 end
-
