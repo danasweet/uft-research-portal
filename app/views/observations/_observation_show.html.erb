@@ -9,7 +9,6 @@
 </div>
 
 <button class="toggle_obs_comment_form">Add Comment</button>
-<%= render :partial => "comments/form_observations.html.erb", :locals => {observation: observation, proposal: observation.proposal, experiment: observation.experiment} %>
-
+<%= render :partial => "comments/form_observations.html.erb", :locals => {observation: observation, proposal: observation.experiment.proposal, experiment: observation.experiment} %>
 <br>
 

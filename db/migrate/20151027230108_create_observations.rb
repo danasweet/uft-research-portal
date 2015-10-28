@@ -1,4 +1,4 @@
-conclass CreateObservations < ActiveRecord::Migration
+class CreateObservations < ActiveRecord::Migration
   def change
     create_table :observations do |t|
       t.string :content

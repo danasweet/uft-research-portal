@@ -170,7 +170,7 @@
 </div>
 <button id="toggle_observations_box">Add Observation</button>
 <div id="observations_form">
-  <%= form_for [@proposal, @experiment, @observation], url: "/proposals/#{@proposal.id}/experiments/#{@experiment.id}/observations", :method => :post, remote: true do |f| %>
+  <%= form_for [@proposal, @experiment, @observation], url: "/proposals/#{@proposal.id}/experiments/#{@experiment.id}/observations", :method => :post do |f| %>
     <%= f.text_area :content, size: "160x3" %>
     <%= f.button :submit %>
 <% end %>
