@@ -39,6 +39,10 @@ $(document).ready(function(){
     $(".experiment_comment_button").show();
   })
 
+  $(".col-md-3").on("click",function(event){
+    event.preventDefault();
+  });
+
   $(".observations_index").on("click",".toggle_obs_comments",function(event){
     event.preventDefault();
     $(this).next().toggle();

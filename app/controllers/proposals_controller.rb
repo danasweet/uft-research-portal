@@ -4,8 +4,12 @@ class ProposalsController < ApplicationController
   before_filter :authorize
 
   def index
-    @proposals = Proposal.all
     @current_user = User.find_by(id: session[:user_id])
+    if params[:search]
+      @proposals = Proposal.search(params[:search]).order("created_at DESC")
+    else
+      @proposals = Proposal.order("created_at DESC")
+    end
   end
 
   def new
