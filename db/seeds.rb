@@ -39,7 +39,7 @@ end
                                     hypothesis: hypotheses.sample,
                                     department: departments.sample,
                                     active: 1,
-                                    faculty: faculty.sample)
+                                    faculty_id: rand(1..25))
 
   Proposal.all.sample.experiments.create!(title: experiment_titles.sample,
                                           description: Faker::Lorem.sentence,
@@ -47,7 +47,7 @@ end
                                           procedure: procedures.sample,
                                           results: results.sample,
                                           conclusion: conclusions.sample,
-                                          researcher: researchers.sample,
+                                          researcher_id: rand(26..50),
                                           proposal: Proposal.all.sample)
 
   Proposal.all.sample.comments.create!(content: Faker::Lorem.paragraph,

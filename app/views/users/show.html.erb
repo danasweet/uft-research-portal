@@ -86,3 +86,87 @@
   </div>
   <% end %>
 <% end %>
+
+<% if @experiments %>
+  <% @experiments.each_with_index do |exp, index| %>
+    <div class='col-md-12'>
+      <div class='panel-group'>
+        <div class='panel panel-danger'>
+          <div class='panel-heading'>
+            <h4 class='panel-title'>
+              <a data-toggle='collapse' data-parent='.panel-group' href='#researcher_experiments<%= index %>'><%= exp.title %></a>
+            </h4>
+          </div>
+          <div id='researcher_experiments<%= index %>' class='panel-collapse collapse'>
+            <div class='panel-body'>
+              <div class="row">
+                <div class="col-md-2">
+                  <h4>Proposal Title</h4>
+                </div>
+                <div class="col-md-10">
+                  <p><%= exp.proposal.title %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <h4>Experiment Title</h4>
+                </div>
+                <div class="col-md-10">
+                  <p><%= exp.title %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <h4>Description</h4>
+                </div>
+                <div class="col-md-10">
+                  <p><%= exp.description %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <h4>Equipment</h4>
+                </div>
+                <div class="col-md-10">
+                  <p><%= exp.equipment %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <h4>Procedure</h4>
+                </div>
+                <div class="col-md-10">
+                  <p><%= exp.procedure %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <h4>Observations</h4>
+                </div>
+                <div class="col-md-10">
+                  <p><%= exp.observations %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <h4>Results</h4>
+                </div>
+                <div class="col-md-10">
+                  <p><%= exp.results %></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <h4>Conclusion</h4>
+                </div>
+                <div class="col-md-10">
+                  <p><%= exp.conclusion %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

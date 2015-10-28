@@ -1,5 +1,4 @@
 <h1><%= @experiment.title %></h1>
-<br>
 
 <div class="row well">
   <div class='col-md-3'>
@@ -22,7 +21,6 @@
     </ul>
   </div>
 </div>
-
   <br>
 
   <div id="equipment_comments">
@@ -35,11 +33,11 @@
 <div id="equipment_comments">
   <%= render :partial => "comments/index_equipment.html.erb", :collection => @equipment_comments, as: :equipment_comments  %>
 </div>
-<button class='experiment_comment_button'>Add Comment</button>
+<button class='experiment_comment_button btn btn-default'>Add Comment</button>
 <div class = 'experiment_comment_box'>
 
     <%= render :partial => "comments/form_equipment.html.erb" %>
-  <button class='cancel_experiment_comment'>Cancel</button>
+  <button class='cancel_experiment_comment btn btn-default'>Cancel</button>
 </div>
 
 <h3>Procedure</h3>
@@ -47,10 +45,10 @@
 <div id="procedure_comments">
   <%= render :partial => "comments/index_procedure.html.erb", :collection => @procedure_comments, as: :comments %>
 </div>
-<button class='experiment_comment_button'>Add Comment</button>
+<button class='experiment_comment_button btn btn-default'>Add Comment</button>
 <div class = 'experiment_comment_box'>
   <%= render :partial => "comments/form_procedure.html.erb" %>
-<button class='cancel_experiment_comment'>Cancel</button>
+<button class='cancel_experiment_comment btn btn-default'>Cancel</button>
 </div>
 
 <h3>Observations</h3>
@@ -58,10 +56,10 @@
 <div id="observations_comments">
 <%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
 </div>
-<button class='experiment_comment_button'>Add Comment</button>
+<button class='experiment_comment_button btn btn-default'>Add Comment</button>
 <div class = 'experiment_comment_box'>
   <%= render :partial => "comments/form_observations.html.erb" %>
-  <button class='cancel_experiment_comment'>Cancel</button>
+  <button class='cancel_experiment_comment btn btn-default btn-sm'>Cancel</button>
 
 <div class="container">
   <ul class='list-unstyled'>
@@ -69,21 +67,21 @@
       <div class="row">
         <div class="col-md-7">
         <li>
-          <%= obs %>
+          <%= obs.content %>
         </div>
         <div class="col-md-5">
           <div id="observations_comments">
 
           </div>
-          <button class='experiment_comment_button'>Add Comment</button>
+          <button class='experiment_comment_button btn btn-default'>Add Comment</button>
           <div class = 'experiment_comment_box'>
             <%= render :partial => "comments/form_observations.html.erb" %>
-          <button class='cancel_experiment_comment'>Cancel</button>
+            <button class='cancel_experiment_comment btn btn-default'>Cancel</button>
           </div>
         </li>
       </div>
-    </ul>
-  <% end %>
+    <% end %>
+  </ul>
   </div>
 </div>
 
@@ -92,10 +90,10 @@
 <div id="results_comments">
 <%= render :partial => "comments/index_results.html.erb", :collection => @results_comments, as: :comments %>
 </div>
-<button class='experiment_comment_button'>Add Comment</button>
+<button class='experiment_comment_button btn btn-default'>Add Comment</button>
 <div class = 'experiment_comment_box'>
   <%= render :partial => "comments/form_results.html.erb" %>
-  <button class='cancel_experiment_comment'>Cancel</button>
+  <button class='cancel_experiment_comment btn btn-default'>Cancel</button>
 </div>
 
 
@@ -104,23 +102,26 @@
 <div ="conclusion_comments">
   <%= render :partial => "comments/index_conclusion.html.erb", :collection => @conclusion_comments, as: :comments %>
 </div>
-<button id='experiment_comment_button'>Add Comment</button>
+<button id='experiment_comment_button btn btn-default'>Add Comment</button>
 <div class = 'experiment_comment_box'>
   <%= render :partial => "comments/form_conclusion.html.erb" %>
-  <button class='cancel_experiment_comment'>Cancel</button>
+  <button class='cancel_experiment_comment btn btn-default'>Cancel</button>
 </div>
 
-<% if session[:user_id] == @experiment.researcher_id %>
-  <p>
-    <%= link_to 'Edit', edit_proposal_experiment_path %>
-  </p>
-  <p>
-    <%=   link_to 'Delete', proposal_experiment_path,
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-  </p>
-<% end %>
+<div class='container'>
+  <% if session[:user_id] == @experiment.researcher_id %>
+    <p>
+      <%= link_to 'Edit', edit_proposal_experiment_path %>
+    </p>
+    <p>
+      <%=   link_to 'Delete', proposal_experiment_path,
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+    </p>
+  <% end %>
 
-<% if session[:user_id] == @experiment.researcher_id || @experiment.proposal.faculty_id%>
-  <%= render :partial => "comments/formExperiment.html.erb" %>
-<% end %>
+
+  <% if session[:user_id] == @experiment.researcher_id || @experiment.proposal.faculty_id%>
+    <%= render :partial => "comments/formExperiment.html.erb" %>
+  <% end %>
+</div>

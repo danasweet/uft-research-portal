@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @proposals = @user.proposals
+    @experiments = @user.experiments
   end
 
   def user_params
