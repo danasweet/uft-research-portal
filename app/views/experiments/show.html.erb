@@ -1,11 +1,12 @@
-<h1>Experiment #<%= @experiment.id %>: <%= @experiment.title %></h1>
+<h1><%= @experiment.title %></h1>
 
 <div class="row well">
   <div class='col-md-3'>
     <h3>Proposal Title</h3>
       <%= @proposal.title %>
     <h3>Stage</h3>
-      <%= @experiment.current_stage %>
+      <%= @experiment.current_stage %><br>
+      <progress max="100" value="<%= @experiment.progress %>"></progress>
   </div>
   <div class='col-md-6'>
     <h3>Description</h3>
@@ -20,6 +21,13 @@
     </ul>
   </div>
 </div>
+  <br>
+
+  <div id="equipment_comments">
+    <%= render :partial => "comments/index_equipment.html.erb", :collection => @equipment_comments, as: :equipment_comments  %>
+  </div>
+  <button class='experiment_comment_button'>Add Comment</button>
+  <div class = 'experiment_comment_box'>
 
 <br>
 <div id="equipment_comments">
@@ -27,6 +35,7 @@
 </div>
 <button class='experiment_comment_button btn btn-default'>Add Comment</button>
 <div class = 'experiment_comment_box'>
+
     <%= render :partial => "comments/form_equipment.html.erb" %>
   <button class='cancel_experiment_comment btn btn-default'>Cancel</button>
 </div>
