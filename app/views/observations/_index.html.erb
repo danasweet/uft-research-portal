@@ -1,0 +1,8 @@
+
+<%= observation.content %>
+<%= observation.created_at %>
+
+
+<%= render :partial => "comments/index_observations.html.erb", :collection => comments, as: :comments %>
+<%= render :partial => "comments/form_observations.html.erb", :locals => {observation: observation} %>
+

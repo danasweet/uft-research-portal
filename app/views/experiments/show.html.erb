@@ -51,39 +51,7 @@
 <button class='cancel_experiment_comment'>Cancel</button>
 </div>
 
-<h3>Observations</h3>
-  <%= @experiment.observations %>
-<div id="observations_comments">
-<%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
-</div>
-<button class='experiment_comment_button'>Add Comment</button>
-<div class = 'experiment_comment_box'>
-  <%= render :partial => "comments/form_observations.html.erb" %>
-  <button class='cancel_experiment_comment'>Cancel</button>
 
-<div class="container">
-  <ul class='list-unstyled'>
-    <% @experiment.observations.each do |obs| %>
-      <div class="row">
-        <div class="col-md-7">
-        <li>
-          <%= obs %>
-        </div>
-        <div class="col-md-5">
-          <div id="observations_comments">
-
-          </div>
-          <button class='experiment_comment_button'>Add Comment</button>
-          <div class = 'experiment_comment_box'>
-            <%= render :partial => "comments/form_observations.html.erb" %>
-          <button class='cancel_experiment_comment'>Cancel</button>
-          </div>
-        </li>
-      </div>
-    </ul>
-  <% end %>
-  </div>
-</div>
 
 <h3>Results</h3>
   <%= @experiment.results %>
@@ -122,3 +90,59 @@
 <% if session[:user_id] == @experiment.researcher_id || @experiment.proposal.faculty_id%>
   <%= render :partial => "comments/formExperiment.html.erb" %>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3>Observations</h3>
+<div class="observations_index">
+  <% @observations.each do |observation| %>
+  <%= render :partial => "observations/index.html.erb", :locals => {observation: observation, comments: observation.comments} %>
+<% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

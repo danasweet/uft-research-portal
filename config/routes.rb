@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :proposals do
-    resources :experiments
+    resources :experiments do
+      resources :observations
+    end
   end
 
   # get '/proposals/:proposal_id' => 'proposals#show', as: 'proposal'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
 
   post '/proposals/:proposal_id/comments' => 'comments#create', as: 'proposal_comments'
   post '/proposals/:proposal_id/experiments/:experiment_id/comments' => 'comments#create', as: 'experiment_comment'
+  post '/proposals/:proposal_id/experiments/:experiment_id/observations/:observation_id/comments' => 'comments#create', as: 'observation_comment'
 
   get 'sessions/new'
 

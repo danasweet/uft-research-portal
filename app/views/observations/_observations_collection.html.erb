@@ -1,0 +1,3 @@
+<% observations.each do |observation| %>
+<%= render :partial => "observations/index.html.erb", :locals => {observation: observation, comments: observation.comments} %>
+<%end%>
