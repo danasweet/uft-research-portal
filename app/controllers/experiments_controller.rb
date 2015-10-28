@@ -27,6 +27,8 @@ class ExperimentsController < ApplicationController
     @procedure_comments = @experiment.comments.procedure
     @results_comments = @experiment.comments.results
     @conclusion_comments = @experiment.comments.conclusion
+    @observation = Observation.new
+    @observations = @experiment.observations
     @comment = Comment.new
     render :file => "/public/500.html",  :status => 500 unless owns_experiment? || session[:user_id] == @proposal.faculty_id
   end
