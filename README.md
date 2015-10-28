@@ -1,4 +1,4 @@
-# [UFT Research Portal](https://utf-research-portal.herokuapp.com)
+# [UFT Research Portal](https://uft-research-portal.herokuapp.com)
 
 Mock portal for faculty and lab researchers at the University of Florida to manage project proposals and experiments.
 
