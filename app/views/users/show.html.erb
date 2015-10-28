@@ -1,91 +1,88 @@
-<h3><%= @user.name %></h3>
-<p><%= @user.email %></p>
-<p><%= @user.role %></p>
+<h2><%= @user.name %></h2>
+<h4><%= @user.email %></h4>
+<h4><%= @user.role %></h4>
 
 <% if @proposals %>
   <% @proposals.each do |proposal| %>
+    <div class="container">
+      <h3><%= proposal.title %></h3>
 
-  <div class='col-md-8 col-md-offset-2'>
-    <div class='panel-group'>
-      <div class='panel'>
-        <div class='panel-heading'>
-          <h4 class='panel-title'>
-            <a data-toggle='collapse' data-parent='.panel-group' href='#proposals'><%= proposal.title %></a>
-          </h4>
-        </div>
-        <div id='proposals' class='panel-collapse collapse'>
-          <div class='panel-body'>
-            <p>Experiments:</p>
-            <ul class='list-unstyled'>
-            <% proposal.experiments.each do |experiment| %>
-              <li><%= experiment.title %></li>
-              <li><%= experiment.description %></li>
-              <li><%= experiment.equipment %></li>
-              <li><%= experiment.procedure %></li>
-              <li><%= experiment.observations %></li>
-              <li><%= experiment.results %></li>
-              <li><%= experiment.conclusion %></li>
-            <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
-  </div>
-<% end %>
-
-<% if @proposals %>
-  <% @proposals.each do |proposal| %>
-
-  <div class='col-md-8 col-md-offset-2'>
-    <div class='panel-group'>
-      <div class='panel'>
-        <div class='panel-heading'>
-          <h4 class='panel-title'>
-            <a data-toggle='collapse' data-parent='.panel-group' href='#proposals'><%= proposal.title %></a>
-          </h4>
-        </div>
-        <div id='proposals' class='panel-collapse collapse'>
-          <div class='panel-body'>
-
-
-            <% if (proposal.experiments.length > 0) %>
-              <% proposal.experiments.each do |experiment| %>
-
-              <div class='col-md-7'>
-                <div class='panel-group'>
-                  <div class='panel'>
-                    <div class='panel-heading'>
-                      <h4 class='panel-title'>
-                        <a data-toggle='collapse' data-parent='.panel-group' href='#experiments'><%= experiment.title %></a>
-                      </h4>
-                    </div>
-                    <div id='experiments' class='panel-collapse collapse'>
-                      <div class='panel-body'>
-                        <p>Experiments:</p>
-                        <ul class='list-unstyled'>
-                        <% proposal.experiments.each do |experiment| %>
-                          <li><%= experiment.title %></li>
-                          <li><%= experiment.description %></li>
-                          <li><%= experiment.equipment %></li>
-                          <li><%= experiment.procedure %></li>
-                          <li><%= experiment.observations %></li>
-                          <li><%= experiment.results %></li>
-                          <li><%= experiment.conclusion %></li>
-                        <% end %>
-                      </ul>
-                    </div>
+    <% if proposal.experiments %>
+      <% proposal.experiments.each_with_index do |experiment, index| %>
+      <div class='col-md-10'>
+        <div class='panel-group'>
+          <div class='panel'>
+            <div class='panel-heading'>
+              <h4 class='panel-title'>
+                <a data-toggle='collapse' data-parent='.panel-group' href='#experiments<%= index %>'><%= experiment.title %></a>
+              </h4>
+            </div>
+            <div id='experiments<%= index %>' class='panel-collapse collapse'>
+              <div class='panel-body'>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h4>Title</h4>
+                  </div>
+                  <div class="col-md-10">
+                    <p><%= experiment.title %></p>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h4>Description</h4>
+                  </div>
+                  <div class="col-md-10">
+                    <p><%= experiment.description %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h4>Equipment</h4>
+                  </div>
+                  <div class="col-md-10">
+                    <p><%= experiment.equipment %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h4>Procedure</h4>
+                  </div>
+                  <div class="col-md-10">
+                    <p><%= experiment.procedure %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h4>Observations</h4>
+                  </div>
+                  <div class="col-md-10">
+                    <p><%= experiment.observations %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h4>Results</h4>
+                  </div>
+                  <div class="col-md-10">
+                    <p><%= experiment.results %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-2">
+                    <h4>Conclusion</h4>
+                  </div>
+                  <div class="col-md-10">
+                    <p><%= experiment.conclusion %></p>
+                  </div>
+                </div>
+
               </div>
-              <% end %>
             </div>
-          <% end %>
           </div>
         </div>
       </div>
-    </div>
+      <% end %>
     <% end %>
   </div>
+  <% end %>
 <% end %>
