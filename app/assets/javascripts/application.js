@@ -52,7 +52,7 @@ $(document).ready(function(){
     })
   })
 
-  $("#toggle_observations_box").on("click",function(event){
+  $(".toggle_observations_box").on("click",function(event){
     console.log("Hello");
     $(this).next().toggle();
     $(this).text(function(i, text){
