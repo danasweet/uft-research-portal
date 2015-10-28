@@ -23,13 +23,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-<<<<<<< HEAD
-    @experiments = @user.experiments
-    @proposals = @user.proposals
-=======
     @proposals = @user.proposals
     @experiments = @user.experiments
->>>>>>> master
   end
 
   def user_params
