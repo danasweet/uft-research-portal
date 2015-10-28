@@ -1,5 +1,9 @@
 <div class="comments">
   <% if @comments %>
-    <%= render @comments %>
+    <ul>
+      <% @comments.each do |comment| %>
+        <li><%= comment.content %></li>
+      <% end %>
+    </ul>
   <% end %>
 </div>
