@@ -8,6 +8,7 @@
 <% else %>
   <h3>Experiments:</h3>
 <% end %>
+<br>
 
 <% if @proposals %>
   <% @proposals.each do |proposal| %>
@@ -99,7 +100,6 @@
     <div class='col-md-12'>
       <div class='panel-group'>
         <div class='panel'>
-
           <div class='panel-heading'>
             <h4 class='panel-title'>
               <a data-toggle='collapse' data-parent='.panel-group' href='#researcher_experiments<%= index %>'><%= exp.title %></a>
