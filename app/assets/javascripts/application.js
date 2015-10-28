@@ -21,6 +21,7 @@ $(document).ready(function(){
   $(".experiment_comment_box").css("display", "none");
   $(".comments_observations").css("display","none");
   $(".comment_obs_form").css("display","none");
+  $("#observations_form").css("display","none");
 
   $(".experiment_comment_button").on("click",function(event){
     console.log("hello");
@@ -50,5 +51,13 @@ $(document).ready(function(){
           return text === "Add Comment" ? "Cancel" : "Add Comment";
     })
   })
+
+  $("#toggle_observations_box").on("click",function(event){
+    console.log("Hello");
+    $(this).next().toggle();
+    $(this).text(function(i, text){
+          return text === "Add Observation" ? "Cancel" : "Add Observation";
+    })
+  });
 
 });
