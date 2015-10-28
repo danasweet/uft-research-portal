@@ -13,7 +13,7 @@
       <h3>Proposal</h3>
     </div>
   </div>
-  <% @proposals.reverse.each do |proposal| %>
+  <% @proposals.each do |proposal| %>
   <div class="container">
     <div class="row">
       <div class='col-md-1 star'>
@@ -23,7 +23,7 @@
         <% end %>
       </div>
       <div class='col-md-3'>
-        <br> 
+        <br>
        <h4 class="proposal-department"><%= link_to proposal.department, root_path %></h4>
         </div>
 
