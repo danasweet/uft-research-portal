@@ -1,7 +1,6 @@
 <h2><%= @user.name %></h2>
 <h4><%= @user.email %></h4>
 <h4><%= @user.role %></h4>
-<<<<<<< HEAD
 <br>
 
 <% if @user.is_faculty? %>
@@ -9,8 +8,7 @@
 <% else %>
   <h3>Experiments:</h3>
 <% end %>
-=======
->>>>>>> master
+
 
 <% if @proposals %>
   <% @proposals.each do |proposal| %>
@@ -101,11 +99,7 @@
   <% @experiments.each_with_index do |exp, index| %>
     <div class='col-md-12'>
       <div class='panel-group'>
-<<<<<<< HEAD
         <div class='panel'>
-=======
-        <div class='panel panel-danger'>
->>>>>>> master
           <div class='panel-heading'>
             <h4 class='panel-title'>
               <a data-toggle='collapse' data-parent='.panel-group' href='#researcher_experiments<%= index %>'><%= exp.title %></a>
