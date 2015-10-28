@@ -35,6 +35,17 @@
 </div>
   <% if @current_user && @current_user.is_researcher? %>
     <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
+    <ul>
+      <% @researcher_experiments.each do |experiment| %>
+      <li>
+        <h3><%= link_to experiment.title, experiment_path(@proposal, experiment) %></h3>
+        <p><%= experiment.researcher.name %></p>
+        <p><%= experiment.description %> </p>
+        <br>
+      </li>
+      <% end %>
+    </ul>
+
   <% end %>
   <br>
 </div>

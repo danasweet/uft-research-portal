@@ -47,6 +47,7 @@ class ProposalsController < ApplicationController
     @comments = @proposal.comments
     @experiments = @proposal.experiments
     @comment = Comment.new
+    @researcher_experiments = @experiments.where(researcher_id: @current_user.id)
   end
 
   def destroy
