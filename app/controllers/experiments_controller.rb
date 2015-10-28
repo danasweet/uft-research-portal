@@ -1,15 +1,7 @@
 class ExperimentsController < ApplicationController
 
   before_filter :authorize
-  before_filter :validate, :except => [:index, :new, :create]
-
-  #list of all stubbed experiments associated with a proposal
-  # def index
-  #   @proposal = Proposal.find(params[:proposal_id])
-  #   @comments = @proposal.comments
-  #   @experiments = @proposal.experiments
-  #   render :file => "/public/500.html",  :status => 500 unless session[:user_id] == @proposal.faculty_id
-  # end
+  before_filter :validate, :except => [:new, :create, :show]
 
   def new
     @user = User.find(session[:user_id])
@@ -35,7 +27,10 @@ class ExperimentsController < ApplicationController
     @procedure_comments = @experiment.comments.procedure
     @results_comments = @experiment.comments.results
     @conclusion_comments = @experiment.comments.conclusion
+    @observation = Observation.new
+    @observations = @experiment.observations
     @comment = Comment.new
+    render :file => "/public/500.html",  :status => 500 unless owns_experiment? || session[:user_id] == @proposal.faculty_id
   end
 
   def edit

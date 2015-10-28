@@ -1,5 +1,6 @@
-<%= form_for [@proposal, @experiment, @comment], url: "/proposals/#{@proposal.id}/experiments/#{@experiment.id}/comments", remote: true do |f| %>
+<div class = "comment_obs_form">
+<%= form_for [@proposal, @experiment, observation, @comment], url: "/proposals/#{@proposal.id}/experiments/#{@experiment.id}/observations/#{observation.id}/comments", :method => :post, remote: true do |f| %>
   <%= f.text_area :content, size: "160x3" %>
-  <%= f.hidden_field :stage, :value => "Observations" %>
-  <%= f.button :submit, class: 'btn btn-default' %>
+  <%= f.button :submit %>
 <% end %>
+</div>
