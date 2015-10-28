@@ -18,4 +18,18 @@ class Experiment < ActiveRecord::Base
     end
   end
 
+  def progress
+    if self.current_stage == "equipment"
+      return 20
+    elsif self.current_stage == "procedure"
+      40
+    elsif self.current_stage == "observations"
+      60
+    elsif self.current_stage == "results"
+      80
+    elsif self.current_stage == "conclusion"
+      100
+    end
+  end
+
 end
