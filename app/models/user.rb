@@ -18,10 +18,6 @@ class User < ActiveRecord::Base
   def is_researcher?
     self.role == "researcher" ? true : false
   end
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> master
 end
 
