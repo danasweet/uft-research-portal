@@ -4,13 +4,17 @@
 
 <%= form_for @proposal, url: proposals_path do |f| %>
 
+<<<<<<< HEAD
+      <%= f.text_area :title, placeholder: 'Title', size: '100x2' %>
+=======
       <%= f.text_field :title, placeholder: 'Title' %>
+>>>>>>> master
       <br>
-      <%= f.text_field :department, placeholder: 'Department' %>
+      <%= f.text_field :department, placeholder: 'Department', size: "100x8" %>
       <br>
-      <%= f.text_area :summary, placeholder: 'Summary' %>
+      <%= f.text_area :summary, placeholder: 'Summary', size: "100x8" %>
       <br>
-      <%= f.text_field :hypothesis, placeholder: 'Hypothesis' %>
+      <%= f.text_area :hypothesis, placeholder: 'Hypothesis', size: '100x4' %>
       <br>
       <%= f.submit %>
   <% end %>
