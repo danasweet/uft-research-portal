@@ -7,8 +7,9 @@
 <h3>Description</h3>
 <%= @experiment.description %>
 
-  <h3>Equipment</h3>
+<h3>Equipment</h3>
   <%= @experiment.equipment %>
+
 <div class="row well">
   <div class='col-md-3'>
     <h3>Proposal Title</h3>
@@ -37,10 +38,17 @@
   </div>
   <button class='experiment_comment_button'>Add Comment</button>
   <div class = 'experiment_comment_box'>
+
+<br>
+<div id="equipment_comments">
+  <%= render :partial => "comments/index_equipment.html.erb", :collection => @equipment_comments, as: :equipment_comments  %>
+</div>
+<button class='experiment_comment_button'>Add Comment</button>
+<div class = 'experiment_comment_box'>
+
     <%= render :partial => "comments/form_equipment.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
 </div>
-
 
 <h3>Procedure</h3>
   <%= @experiment.procedure %>
@@ -53,15 +61,14 @@
 <button class='cancel_experiment_comment'>Cancel</button>
 </div>
 
-
 <h3>Observations</h3>
-<%= @experiment.observations %>
+  <%= @experiment.observations %>
 <div id="observations_comments">
 <%= render :partial => "comments/index_observations.html.erb", :collection => @observations_comments, as: :comments %>
 </div>
 <button class='experiment_comment_button'>Add Comment</button>
 <div class = 'experiment_comment_box'>
-<%= render :partial => "comments/form_observations.html.erb" %>
+  <%= render :partial => "comments/form_observations.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
 
 <div class="container">
@@ -88,27 +95,26 @@
   </div>
 </div>
 
-
 <h3>Results</h3>
-<%= @experiment.results %>
+  <%= @experiment.results %>
 <div id="results_comments">
 <%= render :partial => "comments/index_results.html.erb", :collection => @results_comments, as: :comments %>
 </div>
 <button class='experiment_comment_button'>Add Comment</button>
 <div class = 'experiment_comment_box'>
-<%= render :partial => "comments/form_results.html.erb" %>
+  <%= render :partial => "comments/form_results.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
 </div>
 
 
 <h3>Conclusion</h3>
-<%= @experiment.conclusion %>
+  <%= @experiment.conclusion %>
 <div ="conclusion_comments">
-<%= render :partial => "comments/index_conclusion.html.erb", :collection => @conclusion_comments, as: :comments %>
+  <%= render :partial => "comments/index_conclusion.html.erb", :collection => @conclusion_comments, as: :comments %>
 </div>
 <button id='experiment_comment_button'>Add Comment</button>
 <div class = 'experiment_comment_box'>
-<%= render :partial => "comments/form_conclusion.html.erb" %>
+  <%= render :partial => "comments/form_conclusion.html.erb" %>
   <button class='cancel_experiment_comment'>Cancel</button>
 </div>
 
