@@ -3,7 +3,7 @@
 <h1>Submit a New Proposal</h1>
 
 <%= form_for @proposal, url: proposals_path do |f| %>
-    
+
       <%= f.text_field :title, placeholder: 'Title' %>
       <br>
       <%= f.text_field :department, placeholder: 'Department' %>
@@ -12,6 +12,6 @@
       <br>
       <%= f.text_field :hypothesis, placeholder: 'Hypothesis' %>
       <br>
-      <%= f.submit %>
+      <%= f.submit, class: 'btn btn-default' %>
   <% end %>
 <% end %>
