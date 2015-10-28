@@ -11,14 +11,12 @@ class ExperimentsController < ApplicationController
   #   render :file => "/public/500.html",  :status => 500 unless session[:user_id] == @proposal.faculty_id
   # end
 
-  #create a new experiment
   def new
     @user = User.find(session[:user_id])
     @experiment = Experiment.new
     render :file => "/public/500.html",  :status => 500 unless @user.is_researcher?
   end
 
-  #create a new experiment
   def create
     @proposal = Proposal.find(params[:proposal_id])
     @experiment = @proposal.experiments.build(experiment_params)
@@ -29,14 +27,12 @@ class ExperimentsController < ApplicationController
       end
   end
 
-  #display a complete experiment page
   def show
     @user = User.find(session[:user_id])
     @proposal = Proposal.find(params[:proposal_id])
     @experiment = Experiment.includes(:comments).find(params[:id])
     @equipment_comments = @experiment.comments.equipment
     @procedure_comments = @experiment.comments.procedure
-    @observations_comments = @experiment.comments.observations
     @results_comments = @experiment.comments.results
     @conclusion_comments = @experiment.comments.conclusion
     @comment = Comment.new
@@ -46,7 +42,6 @@ class ExperimentsController < ApplicationController
     @experiment = Experiment.find(params[:id])
   end
 
-  #update an existing experiment
   def update
     @experiment = Experiment.find(params[:id])
     if @experiment.update(experiment_params)
@@ -56,11 +51,11 @@ class ExperimentsController < ApplicationController
     end
   end
 
-  #delete an existing experiment
   def destroy
     @experiment = Experiment.find(params[:id])
+    @proposal = @experiment.proposal
     @experiment.destroy
-    redirect_to proposal_experiments_path
+    redirect_to @proposal
   end
 
   private
