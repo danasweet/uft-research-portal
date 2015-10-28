@@ -49,3 +49,21 @@ blockquote footer {
 .footer {
   background-color: #333333;
 }
+.proposal-department a {
+  text-decoration: none;
+  color: black;
+}
+
+.btn {
+  position: inline;
+}
+
+.search_bar {
+  display: inline;
+  margin-top: 7px;
+}
+
+.span2 {
+  margin-top: 5px;
+  margin-right: 10px;
+}

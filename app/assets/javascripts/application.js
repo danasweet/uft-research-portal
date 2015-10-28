@@ -35,4 +35,8 @@ $(document).ready(function(){
     $(".experiment_comment_button").show();
   })
 
+  $(".col-md-3").on("click",function(event){
+    event.preventDefault();
+
+  });
 });

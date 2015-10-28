@@ -23,9 +23,10 @@
         <% end %>
       </div>
       <div class='col-md-3'>
-        <br>
-        <h4><%= proposal.department %></h4>
-      </div>
+        <br> 
+       <h4 class="proposal-department"><%= link_to proposal.department, root_path %></h4>
+        </div>
+
       <div class='col-md-8'>
         <h2><%= link_to proposal.title, proposal_path(proposal) %></h2>
         <p>Summary: <%= proposal.summary %></p>
@@ -34,3 +35,12 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
