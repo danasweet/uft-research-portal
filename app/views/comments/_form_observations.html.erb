@@ -1,4 +1,6 @@
+<div class = "comment_obs_form">
 <%= form_for [@proposal, @experiment, observation, @comment], url: "/proposals/#{@proposal.id}/experiments/#{@experiment.id}/observations/#{observation.id}/comments", :method => :post, remote: true do |f| %>
   <%= f.text_area :content, size: "160x3" %>
   <%= f.button :submit %>
 <% end %>
+</div>

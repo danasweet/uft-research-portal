@@ -35,6 +35,7 @@ class ExperimentsController < ApplicationController
     @procedure_comments = @experiment.comments.procedure
     @results_comments = @experiment.comments.results
     @conclusion_comments = @experiment.comments.conclusion
+    @observation = Observation.new
     @observations = @experiment.observations
     @comment = Comment.new
   end

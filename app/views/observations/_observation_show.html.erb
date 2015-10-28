@@ -4,11 +4,12 @@
 
 <button class="toggle_obs_comments">Toggle Comments</button>
 <div class="comments_observations" id = "obs-<%= observation.id%>">
+
 <%= render :partial => "comments/index_observations.html.erb", :collection => comments, as: :comments %>
 </div>
 
 <button class="toggle_obs_comment_form">Add Comment</button>
-<%= render :partial => "comments/form_observations.html.erb", :locals => {observation: observation} %>
+<%= render :partial => "comments/form_observations.html.erb", :locals => {observation: observation, proposal: observation.proposal, experiment: observation.experiment} %>
 
 <br>
 

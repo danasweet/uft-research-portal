@@ -17,10 +17,13 @@
 //= require bootstrap.min
 $(document).ready(function(){
 
-  $(".experiment_comment_box").css("display", "none");
   $(".cancel_experiment_comment").css("display","none");
+  $(".experiment_comment_box").css("display", "none");
+  $(".comments_observations").css("display","none");
+  $(".comment_obs_form").css("display","none");
 
   $(".experiment_comment_button").on("click",function(event){
+    console.log("hello");
     event.preventDefault();
     $(this).hide();
     $(".cancel_experiment_comment").show();
@@ -33,6 +36,19 @@ $(document).ready(function(){
     $(this).hide();
     $(".experiment_comment_box").hide();
     $(".experiment_comment_button").show();
+  })
+
+  $(".observations_index").on("click",".toggle_obs_comments",function(event){
+    event.preventDefault();
+    $(this).next().toggle();
+  })
+
+  $(".observations_index").on("click",".toggle_obs_comment_form",function(event){
+    event.preventDefault();
+    $(this).next().toggle();
+    $(this).text(function(i, text){
+          return text === "Add Comment" ? "Cancel" : "Add Comment";
+    })
   })
 
 });
