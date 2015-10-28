@@ -53,8 +53,9 @@ class ExperimentsController < ApplicationController
 
   def destroy
     @experiment = Experiment.find(params[:id])
+    @proposal = @experiment.proposal
     @experiment.destroy
-    redirect_to proposal_experiments_path
+    redirect_to @proposal
   end
 
   private

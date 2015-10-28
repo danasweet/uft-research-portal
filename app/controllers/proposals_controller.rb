@@ -10,13 +10,13 @@ class ProposalsController < ApplicationController
 
   def new
     @proposal = Proposal.new
-    @current_user = User.find(session[:user_id])
+    @current_user = User.find_by(:id => session[:user_id])
     render :file => "/public/500.html", :status => 500 unless @current_user.is_faculty?
   end
 
   def create
     @proposal = Proposal.create!(proposal_params)
-    @proposal.faculty = User.find_by(id: session[:user_id])
+    @proposal.faculty = User.find_by(:id => session[:user_id])
     @proposal.save
       if @proposal.valid?
         redirect_to proposal_path(@proposal)
@@ -27,7 +27,7 @@ class ProposalsController < ApplicationController
 
   def edit
     @proposal = Proposal.find(params[:id])
-    @current_user = User.find_by(id: session[:user_id])
+    @current_user = User.find_by(:id => session[:user_id])
     render :file => "/public/500.html", :status => 500 unless @current_user.id == @proposal.faculty.id
   end
 
