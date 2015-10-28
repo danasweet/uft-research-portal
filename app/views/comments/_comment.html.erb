@@ -1,6 +1,10 @@
 <div>
-  <%= comment.content %>
-  <% if comment.commenter %>
-    <%= comment.commenter.name %>
-  <% end %>
+  <blockquote>
+    <div class='container'>
+      <p><%= comment.content %></p>
+      <% if comment.commenter %>
+        <footer><%= comment.commenter.name %></footer>
+      <% end %>
+    </div>
+  </blockquote>
 </div>
