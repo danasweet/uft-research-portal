@@ -13,7 +13,7 @@
       <h3>Proposal</h3>
     </div>
   </div>
-  <% @proposals.each do |proposal| %>
+  <% @proposals.reverse.each do |proposal| %>
   <div class="container">
     <div class="row">
       <div class='col-md-1 star'>
@@ -28,6 +28,7 @@
       </div>
       <div class='col-md-8'>
         <h2><%= link_to proposal.title, proposal_path(proposal) %></h2>
+        <p>Posted on: <%= proposal.created_at.strftime("%b %d, %Y") %></p>
         <p>Summary: <%= proposal.summary %></p>
       </div>
     <% end %>
