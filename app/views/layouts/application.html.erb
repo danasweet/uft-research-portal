@@ -22,11 +22,11 @@
     </div>
     <ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
       <% if current_user %>
-        <li><a href="/users/<%= current_user.id %>">Profile</a></li>
-        <li><a href="/sessions/destroy">Log Out</a></li>
+        <li><a class='gold-nav' href="/users/<%= current_user.id %>">Profile</a></li>
+        <li><a class='gold-nav' href="/sessions/destroy">Log Out</a></li>
       <% else %>
-        <li><a href="/sessions/new">Log In</a></li>
-        <li><a href="/users/new">Register</a></li>
+        <li><a class='gold-nav' href="/sessions/new">Log In</a></li>
+        <li><a class='gold-nav' href="/users/new">Register</a></li>
       <% end %>
     </ul>
         <div id="search_bar">

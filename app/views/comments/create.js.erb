@@ -6,7 +6,6 @@ $(".experiment_comment_button").show();
 
 <% if @comment.stage == "Equipment" %>
   $('#equipment_comments').append(" <%= escape_javascript (render @comment)%>")
-
 <% end %>
 
 <% if @comment.stage == "Procedure" %>
@@ -24,3 +23,15 @@ $(".experiment_comment_button").show();
 <% if @comment.stage == "Conclusion" %>
   $('#conclusion_comments').append(" <%= escape_javascript (render @comment)%>")
 <% end %>
+
+<% if @comment.observation_id %>
+  $(".observations_index").html("<%= escape_javascript (render :partial => 'observations/observations_collection.html.erb', :locals =>{observations: @comment.experiment.observations}) %> ")
+  $(".observations_index form textarea").val("");
+  $(".comment_obs_form").hide();
+  $(".comments_observations").hide();
+  var obs_id = <%= @comment.observation_id %>
+  $("#obs-"+obs_id).show();
+
+  //search dom tree for @comment.content
+  //hide every .comments_obersvations except the one that contains @comment.content
+<%end%>

@@ -1,12 +1,40 @@
 <% if @current_user.id === @proposal.faculty.id %>
 
-      <h1>Edit Your Proposal</h1>
+<div class="row">
+  <div class="span4 well">
+    <%= form_for @proposal, url: proposal_path do |f| %>
+        <fieldset>
+          <legend>Edit Your Proposal</legend>
+          <div class="control-group">
+            <%= f.label :title, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :title, size: '100x2', placeholder: 'Title' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :department, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :department, size: '40x2', placeholder: 'Department' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :summary, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :summary, size: '100x8', placeholder: 'Summary' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :hypothesis, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :hypothesis, size: '100x8', placeholder: 'Hypothesis' %>
+            </div>
+          </div>
 
-      <%= form_for @proposal, url: proposal_path do |f| %>
-          <p> Title: <%= f.text_field :title, placeholder: 'Title' %></p>
-          <p> Department: <%= f.text_field :department, placeholder: 'Department' %></p>
-          <p> Summary:<%= f.text_area :summary, placeholder: 'Summary' %></p>
-          <p> Hypothesis: <%= f.text_field :hypothesis, placeholder: 'Hypothesis' %></p>
-          <p><%= f.submit, class: 'btn btn-default' %></p>
-      <% end %>
+          <div class="form-actions">
+            <%= f.submit :class => "btn btn-primary" %>
+          </div>
+        </fieldset>
+    <% end %>
+  </div>
+</div>
 <% end %>
