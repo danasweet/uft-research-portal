@@ -6,7 +6,7 @@ class Proposal < ActiveRecord::Base
 
   def self.search(query)
     # where(:title, query) -> This would return an exact match of the query
-    where("department like ?", "%#{query}%")
+    where("department like ?", "%#{query.capitalize}%")
   end
 
 end
