@@ -1,17 +1,41 @@
 <% if @current_user.is_faculty? %>
 
-<h1>Submit a New Proposal</h1>
+<div class="row">
+  <div class="span4 well">
+    <%= form_for @proposal, url: proposals_path do |f| %>
+        <fieldset>
+          <legend>Submit a new Proposal</legend>
+          <div class="control-group">
+            <%= f.label :title, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :title, size: '100x2' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :department, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :department, size: '40x2' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :summary, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :summary, size: '100x8' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :hypothesis, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :hypothesis, size: '100x8' %>
+            </div>
+          </div>
 
-<%= form_for @proposal, url: proposals_path do |f| %>
+          <div class="form-actions">
+            <%= f.submit :class => "btn btn-primary" %>
+          </div>
+        </fieldset>
+    <% end %>
+  </div>
+</div>
 
-      <%= f.text_area :title, placeholder: 'Title', size: '100x2' %>
-      <br>
-      <%= f.text_field :department, placeholder: 'Department', size: "100x8" %>
-      <br>
-      <%= f.text_area :summary, placeholder: 'Summary', size: "100x8" %>
-      <br>
-      <%= f.text_area :hypothesis, placeholder: 'Hypothesis', size: '100x4' %>
-      <br>
-      <%= f.submit, class: 'btn btn-default' %>
-  <% end %>
 <% end %>

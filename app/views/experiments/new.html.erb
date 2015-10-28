@@ -1,17 +1,37 @@
-<%= form_for @experiment, url: proposal_experiments_path do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_area :title, size: '100x2' %><br />
+<div class="row">
+  <div class="span4 well">
+    <%= form_for @experiment, url: proposal_experiments_path do |f| %>
+        <fieldset>
+          <legend>Experiment Form</legend>
+          <div class="control-group">
+            <%= f.label :title, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :title, size: '100x2' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :description, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :description, size: '100x4' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :equipment, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :equipment, size: '100x4' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :procedure, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_area :procedure, size: '100x8' %>
+            </div>
+          </div>
 
-  <%= f.label :description %>:
-  <%= f.text_field :description, size: '100x8' %><br />
-
-  <%= f.label :equipment %>:
-  <%= f.text_field :equipment, size: '100x8' %><br />
-
-  <%= f.label :procedure %>:
-  <%= f.text_field :procedure, size: '100x8' %><br />
-
-  <%= f.hidden_field :researcher_id, :value => session[:user_id] %>
-
-  <%= f.submit %>
-<% end %>
+          <div class="form-actions">
+            <%= f.submit :class => "btn btn-primary" %>
+          </div>
+        </fieldset>
+    <% end %>
+  </div>
+</div>
