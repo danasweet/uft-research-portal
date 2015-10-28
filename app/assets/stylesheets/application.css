@@ -31,3 +31,21 @@
   font-size: 32px;
   color: #cccc66
 }
+
+blockquote {
+  border-left: none;
+}
+
+blockquote p {
+  color: #444444;
+  font-size: 13px;
+}
+
+blockquote footer {
+  color: #444444;
+  font-size: 11px;
+}
+
+.footer {
+  background-color: #333333;
+}
