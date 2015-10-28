@@ -1,6 +1,6 @@
 <h4>Comment on this proposal</h4>
 
 <%= form_for [@proposal, @comment], remote: true do |f| %>
-  <%= f.text_area :content, size: "80x8" %>
+  <%= f.text_area :content, size: "100x8" %>
   <p><%= f.button :submit %></p>
 <% end %>
