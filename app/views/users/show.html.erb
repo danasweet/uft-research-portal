@@ -13,7 +13,7 @@
 <% if @proposals %>
   <% @proposals.each do |proposal| %>
     <div class="container">
-      <h3><%= proposal.title %></h3>
+      <h3><%= link_to proposal.title, proposal_path(proposal) %></h3>
 
     <% if proposal.experiments %>
       <% proposal.experiments.each_with_index do |experiment, index| %>
@@ -57,14 +57,6 @@
                   </div>
                   <div class="col-md-10">
                     <p><%= experiment.procedure %></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2">
-                    <h4>Observations</h4>
-                  </div>
-                  <div class="col-md-10">
-                    <p><%= experiment.observations %></p>
                   </div>
                 </div>
                 <div class="row">

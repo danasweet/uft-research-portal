@@ -94,3 +94,7 @@ blockquote footer {
 nav li a {
   color: #DAB547;
 }
+
+#toggle_observations_box {
+  padding-left: 20px;
+}
