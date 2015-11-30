@@ -34,7 +34,7 @@
 
 </div>
   <% if @current_user && @current_user.is_researcher? %>
-    <%= link_to "Sign Up", new_proposal_experiment_path(@proposal.id) %>
+    <%= link_to "New Experiment", new_proposal_experiment_path(@proposal.id), :class => "btn btn-primary"  %>
     <ul>
       <% @researcher_experiments.each do |experiment| %>
       <li>

@@ -2,7 +2,7 @@
 
 <h1>Proposals</h1>
     <% if @current_user && @current_user.role == "faculty" %>
-    <%= link_to "Submit a New Proposal", new_proposal_path, class: 'button'  %>
+    <%= link_to "Submit a New Proposal", new_proposal_path, :class => "btn btn-primary"  %>
     <% end %>
 
   <div class="row">
@@ -23,7 +23,7 @@
         <% end %>
       </div>
       <div class='col-md-3'>
-        <br> 
+        <br>
        <h4 class="proposal-department"><%= link_to proposal.department, root_path %></h4>
         </div>
 

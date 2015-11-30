@@ -57,11 +57,20 @@ blockquote footer {
 
 .btn {
   position: inline;
+  color: black;
+  background-color: #E6E6E6;
+  border: none;
 }
 
 .search_bar {
   display: inline;
   margin-top: 7px;
+}
+
+#search {
+  margin-top: 1px;
+  margin-right: 8px;
+  padding: 3px 8px;
 }
 
 .span2 {
