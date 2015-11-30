@@ -4,7 +4,7 @@
   <div class="span4 well">
     <%= form_for @proposal, url: proposals_path do |f| %>
         <fieldset>
-          <legend>Submit a new Proposal</legend>
+          <legend>Submit New Proposal</legend>
           <div class="control-group">
             <%= f.label :title, :class => "control-label" %>
             <div class="controls">
@@ -14,7 +14,7 @@
           <div class="control-group">
             <%= f.label :department, :class => "control-label" %>
             <div class="controls">
-              <%= f.text_area :department, size: '40x2' %>
+              <%= f.text_area :department, size: '100x2' %>
             </div>
           </div>
           <div class="control-group">

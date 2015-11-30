@@ -30,14 +30,14 @@
       <% end %>
     </ul>
         <div id="search_bar">
-          <%= form_tag(proposals_path, :method => "get", class: "navbar-form", id: "search-form")do %>
+          <%= form_tag(proposals_path, :method => "get", class: "navbar-form")do %>
           <span class="input-append">
-            <button class="btn btn-default pull-right" type="submit">Search</button>
-            <%= text_field_tag :search, params[:search], class: "span2 pull-right", placeholder: "Search By Department" %> 
+            <button class="btn btn-primary pull-right" type="submit">Search</button>
+            <%= text_field_tag :search, params[:search], class: "span2 pull-right", placeholder: "Search By Department" %>
           </span>
           <% end %>
         </div>
-        
+
   </nav>
   </header>
   <div class="container">

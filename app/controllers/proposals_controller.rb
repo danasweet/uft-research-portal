@@ -6,7 +6,7 @@ class ProposalsController < ApplicationController
   def index
     @current_user = User.find_by(id: session[:user_id])
     if params[:search]
-      @proposals = Proposal.search(params[:search]).order("created_at DESC")
+      @proposals = Proposal.search(params[:search].capitalize).order("created_at DESC")
     else
       @proposals = Proposal.order("created_at DESC")
     end
