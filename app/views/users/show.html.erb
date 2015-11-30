@@ -1,6 +1,5 @@
 <h2><%= @user.name %></h2>
-<h4><%= @user.email %></h4>
-<h4><%= @user.role %></h4>
+<h4><%= @user.role.capitalize %></h4>
 <br>
 
 <% if @user.is_faculty? %>
