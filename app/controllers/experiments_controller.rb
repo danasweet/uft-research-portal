@@ -5,6 +5,7 @@ class ExperimentsController < ApplicationController
 
   def new
     @user = User.find(session[:user_id])
+    @proposal = Proposal.find(params[:proposal_id])
     @experiment = Experiment.new
     render :file => "/public/500.html",  :status => 500 unless @user.is_researcher?
   end
