@@ -107,3 +107,8 @@ nav li a {
 #toggle_observations_box {
   padding-left: 20px;
 }
+
+.form-control {
+  width: 40%;
+}
+
