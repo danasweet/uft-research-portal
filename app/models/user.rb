@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true, length: { maximum: 100 }
   validates :email, presence: true, uniqueness: true
-  validates_format_of :email,:with => /\A([^@\s]+)@((?:uft.)+edu)\z/i
-  validates :password, presence: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:uft.)+edu)\z/i, :message => " is invalid. Make sure you register with a valid uft.edu email address."
+  # validates :password, presence: true
 
   def is_faculty?
     self.role == "faculty" ? true : false
